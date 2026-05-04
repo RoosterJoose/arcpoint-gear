@@ -1,0 +1,18 @@
+---
+const { rows = [], title = "Comparison Table" } = Astro.props;
+---
+
+<section class="content-block" data-reveal>
+  <h2>{title}</h2>
+  <div class="table-wrap">
+    <table class="comparison-table">
+      <tbody>
+        {rows.map((row, index) => (
+          <tr>
+            {row.map((cell) => (index === 0 ? <th>{cell}</th> : <td>{cell}</td>))}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

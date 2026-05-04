@@ -1,0 +1,13 @@
+---
+import { navItems } from "../data/site";
+---
+
+<header class="site-header" data-site-header>
+  <a class="brand-mark" href="/" aria-label="ArcPoint Gear home">
+    <span class="brand-dot"></span>
+    ARCPOINT GEAR
+  </a>
+  <nav class="site-nav" aria-label="Primary navigation">
+    {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+</header>

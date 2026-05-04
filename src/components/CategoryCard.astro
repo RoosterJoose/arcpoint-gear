@@ -1,0 +1,9 @@
+---
+const { category } = Astro.props;
+---
+
+<a class="category-card" href={`/category/${category.slug}`}>
+  <span>{category.accent}</span>
+  <h3>{category.name}</h3>
+  <p>{category.description}</p>
+</a>

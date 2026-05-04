@@ -1,21 +1,61 @@
 ---
-import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import CategoryCard from "../components/CategoryCard.astro";
+import FeaturedReport from "../components/FeaturedReport.astro";
+import TrustPanel from "../components/TrustPanel.astro";
+import DisclosureNote from "../components/DisclosureNote.astro";
+import { categories } from "../data/categories";
+import { latestArticles } from "../data/articles";
 ---
 
-<main class="site-shell">
-  <section class="hero-card">
-    <p class="eyebrow">ArcPoint Gear</p>
+<Layout
+  title="ArcPoint Gear | Premium Gear Intelligence"
+  description="Premium gear intelligence for serious outdoor, athletic, photography, golf, fishing, hunting, camping, and performance equipment."
+>
+  <main>
+    <section class="hero-section">
+      <div class="hero-copy-wrap" data-reveal>
+        <p class="eyebrow">ArcPoint Gear</p>
+        <h1>Built For The Extremes.</h1>
+        <p class="hero-copy">
+          ArcPoint Gear is a premium gear intelligence publication for serious outdoor,
+          athletic, photography, golf, fishing, hunting, camping, and performance equipment.
+        </p>
+        <div class="button-row">
+          <a class="button button-primary" href="#latest">Latest Reports</a>
+          <a class="button button-secondary" href="/how-we-rate-gear">How We Rate Gear</a>
+        </div>
+      </div>
+      <div class="hero-panel" data-reveal>
+        <div class="hero-visual">
+          <span>Product Lab / Field Notes / Spec Index</span>
+        </div>
+        <FeaturedReport article={latestArticles[0]} />
+      </div>
+    </section>
 
-    <h1>Built For The Extremes.</h1>
+    <section class="section" id="latest" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Latest Reports</p>
+        <h2>Research-led gear calls for high-consequence kit decisions.</h2>
+      </div>
+      <div class="article-grid">
+        {latestArticles.map((article) => <ArticleCard article={article} />)}
+      </div>
+    </section>
 
-    <p class="hero-copy">
-      A premium gear intelligence publication for serious outdoor, athletic,
-      photography, golf, fishing, hunting, camping, and performance equipment.
-    </p>
+    <section class="section" id="categories" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Gear Categories</p>
+        <h2>Eight focused verticals, one technical editorial standard.</h2>
+      </div>
+      <div class="category-grid">
+        {categories.map((category) => <CategoryCard category={category} />)}
+      </div>
+    </section>
 
-    <div class="button-row">
-      <a href="#" class="button button-primary">Latest Reports</a>
-      <a href="#" class="button button-secondary">How We Rate Gear</a>
-    </div>
-  </section>
-</main>
+    <TrustPanel />
+    <DisclosureNote />
+  </main>
+</Layout>

@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { site } from "../data/site";
+---
+
+<Layout
+  title="Contact ArcPoint Gear"
+  description="Contact ArcPoint Gear for editorial, partnership, correction, and general inquiries."
+  canonical="/contact"
+>
+  <main class="page-shell">
+    <Breadcrumbs items={[{ label: "Contact" }]} />
+    <section class="page-hero" data-reveal>
+      <p class="eyebrow">Contact</p>
+      <h1>Reach the ArcPoint Gear desk.</h1>
+      <p>
+        For editorial notes, corrections, partnership inquiries, or product coverage questions,
+        use the email below. A working backend form is intentionally not connected in Phase 1.
+      </p>
+    </section>
+    <section class="contact-card" data-reveal>
+      <h2>Email</h2>
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </section>
+  </main>
+</Layout>

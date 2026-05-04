@@ -1,0 +1,19 @@
+---
+const { rows, title = "Key Specifications" } = Astro.props;
+---
+
+<section class="content-block" data-reveal>
+  <h2>{title}</h2>
+  <div class="table-wrap">
+    <table class="spec-table">
+      <tbody>
+        {rows.map(([label, value]) => (
+          <tr>
+            <th>{label}</th>
+            <td>{value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

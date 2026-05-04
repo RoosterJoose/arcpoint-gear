@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="How We Rate Gear | ArcPoint Gear"
+  description="ArcPoint Gear methodology for research reviews, field-tested reviews, spec analysis, and buying guides."
+  canonical="/how-we-rate-gear"
+>
+  <main class="page-shell">
+    <Breadcrumbs items={[{ label: "How We Rate Gear" }]} />
+    <section class="page-hero" data-reveal>
+      <p class="eyebrow">Methodology</p>
+      <h1>Every recommendation starts with the use case.</h1>
+      <p>
+        Our scores and recommendations are built around realistic missions, product specifications,
+        category comparison, owner feedback signals, and clearly labeled editorial methods.
+      </p>
+    </section>
+    <section class="method-grid" data-reveal>
+      <article>
+        <h2>Research Review</h2>
+        <p>
+          Based on product specifications, manufacturer documentation, category comparison, and
+          owner feedback themes. This label does not claim hands-on testing.
+        </p>
+      </article>
+      <article>
+        <h2>Field-Tested Review</h2>
+        <p>
+          Reserved for products evaluated through direct use. These articles should explain the
+          test context, duration, conditions, and limitations.
+        </p>
+      </article>
+      <article>
+        <h2>Spec Analysis</h2>
+        <p>
+          A technical breakdown of materials, weight, dimensions, feature sets, compatibility,
+          and likely use-case fit.
+        </p>
+      </article>
+      <article>
+        <h2>Buying Guide</h2>
+        <p>
+          A decision framework that helps readers understand product categories, tradeoffs, and
+          shortlists without overstating certainty.
+        </p>
+      </article>
+    </section>
+  </main>
+</Layout>

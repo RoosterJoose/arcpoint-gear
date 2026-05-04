@@ -1,0 +1,29 @@
+---
+import AffiliateButton from "./AffiliateButton.astro";
+
+const { product } = Astro.props;
+---
+
+<aside class="product-summary">
+  <p class="eyebrow">Product Summary</p>
+  <h2>{product.name}</h2>
+  <div class="summary-score">
+    <span>{product.score}</span>
+    <small>ArcPoint Score</small>
+  </div>
+  <dl>
+    <div>
+      <dt>Category</dt>
+      <dd>{product.category}</dd>
+    </div>
+    <div>
+      <dt>Price Tier</dt>
+      <dd>{product.priceTier}</dd>
+    </div>
+    <div>
+      <dt>Best For</dt>
+      <dd>{product.bestFor}</dd>
+    </div>
+  </dl>
+  <AffiliateButton href={product.affiliateUrl} />
+</aside>

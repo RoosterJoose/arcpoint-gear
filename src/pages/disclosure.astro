@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="Affiliate Disclosure | ArcPoint Gear"
+  description="ArcPoint Gear affiliate disclosure and editorial independence statement."
+  canonical="/disclosure"
+>
+  <main class="page-shell">
+    <Breadcrumbs items={[{ label: "Affiliate Disclosure" }]} />
+    <section class="page-hero" data-reveal>
+      <p class="eyebrow">Disclosure</p>
+      <h1>Affiliate relationships should be clear, not hidden.</h1>
+      <p>
+        ArcPoint Gear may earn commissions from qualifying purchases through affiliate links,
+        including placeholder Amazon affiliate links used during this front-end foundation phase.
+      </p>
+    </section>
+    <section class="content-block" data-reveal>
+      <h2>How Affiliate Links Work</h2>
+      <p>
+        If you click an affiliate link and make a qualifying purchase, ArcPoint Gear may receive a
+        commission at no additional cost to you. Affiliate relationships do not require us to publish
+        favorable coverage.
+      </p>
+      <h2>Amazon Pricing and Images</h2>
+      <p>
+        This site does not scrape Amazon, does not display exact Amazon prices, does not display
+        Amazon review counts, and does not use Amazon product images in this phase.
+      </p>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,18 @@
+---
+const { pros = [], cons = [] } = Astro.props;
+---
+
+<section class="pros-cons" data-reveal>
+  <div>
+    <h2>Pros</h2>
+    <ul>
+      {pros.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+  <div>
+    <h2>Cons</h2>
+    <ul>
+      {cons.map((item) => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>

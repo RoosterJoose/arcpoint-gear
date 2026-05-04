@@ -1,0 +1,69 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import SpecTable from "../../components/SpecTable.astro";
+
+const specRows = [
+  ["Fast local hikes", "12-20 L"],
+  ["Standard day hikes", "20-28 L"],
+  ["Long days or shoulder season", "24-35 L"],
+  ["Useful features", "Hydration sleeve, hipbelt pockets, compression, weather-resistant fabric"],
+];
+
+const faqs = [
+  { question: "Is a 22-liter daypack big enough?", answer: "For many three-season day hikes, yes. Cold weather, camera gear, or family carry duties may require more volume." },
+  { question: "Do I need a hipbelt?", answer: "A real hipbelt helps with heavier loads. Minimal waist straps mostly stabilize the pack." },
+];
+---
+
+<Layout
+  title="How to Choose a Daypack for Hiking | ArcPoint Gear"
+  description="A practical buying guide for choosing hiking daypack capacity, fit, suspension, weather resistance, weight, and common mistakes to avoid."
+  canonical="/guides/how-to-choose-a-daypack"
+>
+  <main class="article-shell">
+    <Breadcrumbs items={[{ label: "Guides" }, { label: "How to Choose a Daypack" }]} />
+    <header class="article-hero" data-reveal>
+      <div class="badge-row">
+        <span class="badge badge-category">Hiking</span>
+        <span class="badge badge-type">Buying Guide</span>
+      </div>
+      <h1>How to Choose a Daypack for Hiking</h1>
+      <p>
+        A clean decision framework for capacity, fit, suspension, weight, weather resistance,
+        and pocket layout.
+      </p>
+      <div class="article-meta">
+        <span>By ArcPoint Gear Editorial</span>
+        <span>Updated May 4, 2026</span>
+        <span>8 min read</span>
+      </div>
+    </header>
+    <section class="content-block" data-reveal>
+      <h2>Buying Factors</h2>
+      <p>
+        Choose a daypack by mapping your route, season, water needs, layers, and safety kit. The
+        best pack is not the biggest or lightest one; it is the one that carries your real load
+        without wasted bulk.
+      </p>
+      <h2>Fit and Suspension</h2>
+      <p>
+        Prioritize torso fit, shoulder strap shape, backpanel comfort, and whether the hipbelt is
+        designed for load transfer or basic stabilization.
+      </p>
+      <h2>Weather Resistance</h2>
+      <p>
+        Look for durable face fabrics, covered zippers, water-resistant coatings, and pack-cover
+        compatibility. Waterproof claims should be treated carefully unless construction supports it.
+      </p>
+      <h2>Common Mistakes</h2>
+      <p>
+        Common mistakes include buying too much volume, ignoring torso fit, choosing fashion pockets
+        over trail access, and forgetting that water weight changes carry comfort quickly.
+      </p>
+    </section>
+    <SpecTable rows={specRows} title="Recommended Capacity and Specs" />
+    <FAQSection faqs={faqs} />
+  </main>
+</Layout>

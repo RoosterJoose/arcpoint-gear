@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import DisclosureNote from "../../components/DisclosureNote.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import { roundupProducts } from "../../data/products";
+
+const tableRows = [
+  ["Pick", "Product", "Price Tier", "Best For"],
+  ...roundupProducts.map((product) => [
+    product.rank,
+    product.name,
+    product.priceTier,
+    product.bestFor,
+  ]),
+];
+
+const faqs = [
+  {
+    question: "What capacity is best for ultralight day hiking?",
+    answer: "Most fast mountain days fit well in the 18- to 30-liter range, depending on layers, water, and safety gear.",
+  },
+  {
+    question: "Should I choose the lightest pack?",
+    answer: "Not always. Suspension, fit, and pocket access can matter more than shaving a few ounces.",
+  },
+];
+---
+
+<Layout
+  title="Best Ultralight Hiking Backpacks for Fast Mountain Days | ArcPoint Gear"
+  description="Ranked research picks for ultralight hiking backpacks, including comparison table, buying advice, and practical use-case recommendations."
+  canonical="/best/best-ultralight-hiking-backpacks"
+>
+  <main class="article-shell">
+    <Breadcrumbs items={[{ label: "Hiking", href: "/category/hiking" }, { label: "Best Ultralight Hiking Backpacks" }]} />
+    <header class="article-hero" data-reveal>
+      <div class="badge-row">
+        <span class="badge badge-category">Hiking</span>
+        <span class="badge badge-type">Buying Guide</span>
+      </div>
+      <h1>Best Ultralight Hiking Backpacks for Fast Mountain Days</h1>
+      <p>
+        A research-led shortlist for hikers who want speed, stability, and enough organization
+        for real mountain conditions without carrying unnecessary pack weight.
+      </p>
+      <div class="article-meta">
+        <span>By ArcPoint Gear Editorial</span>
+        <span>Updated May 4, 2026</span>
+        <span>12 min read</span>
+      </div>
+      <div class="article-visual"><span>Ultralight Pack Shortlist</span></div>
+    </header>
+    <DisclosureNote />
+
+    <section class="ranked-grid" data-reveal>
+      {roundupProducts.map((product) => (
+        <article class="ranked-card">
+          <span>{product.rank}</span>
+          <h2>{product.name}</h2>
+          <p>{product.notes}</p>
+          <dl>
+            <div><dt>Price Tier</dt><dd>{product.priceTier}</dd></div>
+            <div><dt>Weight Class</dt><dd>{product.weightClass}</dd></div>
+            <div><dt>Best For</dt><dd>{product.bestFor}</dd></div>
+          </dl>
+          <AffiliateButton label="Check Current Price" />
+        </article>
+      ))}
+    </section>
+
+    <ComparisonTable rows={tableRows} title="Ultralight Hiking Backpack Comparison" />
+    <section class="content-block" data-reveal>
+      <h2>Buying Advice</h2>
+      <p>
+        Start with your actual load, not the product weight. A very light pack can feel worse than
+        a slightly heavier pack if the harness collapses under water, layers, camera gear, or safety
+        equipment. For fast mountain days, prioritize fit, hydration access, shoulder pocket utility,
+        and whether the pack stays quiet when moving quickly.
+      </p>
+    </section>
+    <FAQSection faqs={faqs} />
+  </main>
+</Layout>

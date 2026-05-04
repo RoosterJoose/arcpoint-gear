@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+---
+
+<Layout
+  title="About ArcPoint Gear | Premium Gear Intelligence"
+  description="Learn about ArcPoint Gear, a premium gear intelligence publication focused on clear research, technical evaluation, and trustworthy buying guidance."
+  canonical="/about"
+>
+  <main class="page-shell">
+    <Breadcrumbs items={[{ label: "About" }]} />
+    <section class="page-hero" data-reveal>
+      <p class="eyebrow">About</p>
+      <h1>Gear intelligence for decisions that deserve better than hype.</h1>
+      <p>
+        ArcPoint Gear is a premium editorial publication built for readers who care about
+        performance equipment, technical tradeoffs, and honest recommendation language.
+      </p>
+    </section>
+    <section class="content-block" data-reveal>
+      <h2>What We Cover</h2>
+      <p>
+        We focus on outdoor, athletic, tactical, photography, golf, fishing, hunting, camping, and
+        performance gear. Our goal is to make complex product categories easier to evaluate without
+        pretending every article is based on hands-on field testing.
+      </p>
+      <h2>Editorial Standard</h2>
+      <p>
+        When an article is a Research Review, Spec Analysis, Buying Guide, or Comparison, we label
+        it clearly. Field-tested claims should only appear when the work has actually been done and
+        the article is marked accordingly.
+      </p>
+    </section>
+  </main>
+</Layout>

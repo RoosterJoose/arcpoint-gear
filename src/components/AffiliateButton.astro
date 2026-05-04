@@ -1,0 +1,9 @@
+---
+import { site } from "../data/site";
+
+const { href = site.affiliateUrl, label = "Check Price on Amazon" } = Astro.props;
+---
+
+<a class="button button-primary affiliate-button" href={href} rel="sponsored nofollow" target="_blank">
+  {label}
+</a>

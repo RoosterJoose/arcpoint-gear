@@ -1,0 +1,25 @@
+---
+import CategoryBadge from "./CategoryBadge.astro";
+import ArticleTypeBadge from "./ArticleTypeBadge.astro";
+
+const { article, compact = false } = Astro.props;
+---
+
+<article class:list={["article-card", compact && "article-card-compact"]}>
+  <div class="card-visual">
+    <span>{article.category}</span>
+  </div>
+  <div class="card-body">
+    <div class="badge-row">
+      <CategoryBadge label={article.category} href={`/category/${article.categorySlug}`} />
+      <ArticleTypeBadge label={article.type} />
+    </div>
+    <h3><a href={article.slug}>{article.title}</a></h3>
+    <p>{article.excerpt}</p>
+    <div class="article-meta">
+      <span>{article.date}</span>
+      <span>{article.readTime}</span>
+    </div>
+    <a class="text-link" href={article.slug}>Read report</a>
+  </div>
+</article>

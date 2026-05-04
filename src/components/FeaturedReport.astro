@@ -1,0 +1,13 @@
+---
+const { article } = Astro.props;
+---
+
+<article class="featured-report">
+  <p class="eyebrow">Featured Field Report</p>
+  <h2><a href={article.slug}>{article.title}</a></h2>
+  <p>{article.excerpt}</p>
+  <div class="article-meta">
+    <span>{article.type}</span>
+    <span>{article.readTime}</span>
+  </div>
+</article>
