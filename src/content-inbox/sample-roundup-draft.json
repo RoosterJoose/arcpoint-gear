@@ -201,6 +201,8 @@
     "usesCopiedAmazonDescriptions": false,
     "usesPriceTiersOnly": true,
     "affiliateDisclosureVisible": true,
+    "requiresHumanReview": true,
+    "approvedForPublication": false,
     "usesAmazonProductImages": true
   }
 }
