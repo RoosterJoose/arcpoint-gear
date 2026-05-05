@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { buildBreadcrumbSchema } from "../utils/seo";
+
+const jsonLd = [buildBreadcrumbSchema([{ label: "Affiliate Disclosure", href: "/disclosure" }])];
 ---
 
 <Layout
   title="Affiliate Disclosure | ArcPoint Gear"
   description="ArcPoint Gear affiliate disclosure and editorial independence statement."
   canonical="/disclosure"
+  jsonLd={jsonLd}
 >
   <main class="page-shell">
     <Breadcrumbs items={[{ label: "Affiliate Disclosure" }]} />

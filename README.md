@@ -1,46 +1,31 @@
-# Astro Starter Kit: Basics
+# ArcPoint Gear
+
+ArcPoint Gear is a Phase 1 front-end foundation for a premium affiliate gear publication focused on research-led outdoor, athletic, tactical, photography, golf, fishing, hunting, camping, and performance equipment coverage.
+
+## Stack
+
+- Astro
+- Standard CSS
+- GitHub
+- Hostinger later
+
+## Local Commands
 
 ```sh
-npm create astro@latest -- --template basics
+npm run dev
+npm run build
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Editorial and Affiliate Notes
 
-## 🚀 Project Structure
+- Do not make fake hands-on testing claims.
+- Do not say products were field-tested unless the article is explicitly field-tested and the claim is true.
+- Use research-review language when appropriate: specifications, category comparison, and owner feedback.
+- Do not show exact Amazon prices.
+- Do not show Amazon review counts.
+- Affiliate disclosures are required anywhere affiliate links or buying CTAs appear.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Current Status
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Phase 1 front-end publishing foundation. No CMS, backend, user accounts, payments, shopping cart, admin dashboard, OpenClaw, NoCodeBackend, or live retailer API integrations are connected.

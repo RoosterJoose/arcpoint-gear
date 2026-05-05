@@ -1,8 +1,16 @@
 ---
-const { title = "ArcPoint Verdict", text } = Astro.props;
+const { title = "ArcPoint Verdict", text, score } = Astro.props;
 ---
 
 <section class="verdict-box" data-reveal>
-  <p class="eyebrow">{title}</p>
-  <p>{text}</p>
+  <div>
+    <p class="eyebrow">{title}</p>
+    <p>{text}</p>
+  </div>
+  {score && (
+    <div class="verdict-score">
+      <span>{score}</span>
+      <small>Score</small>
+    </div>
+  )}
 </section>

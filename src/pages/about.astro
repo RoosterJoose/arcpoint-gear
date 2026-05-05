@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { buildBreadcrumbSchema } from "../utils/seo";
+
+const jsonLd = [buildBreadcrumbSchema([{ label: "About", href: "/about" }])];
 ---
 
 <Layout
   title="About ArcPoint Gear | Premium Gear Intelligence"
   description="Learn about ArcPoint Gear, a premium gear intelligence publication focused on clear research, technical evaluation, and trustworthy buying guidance."
   canonical="/about"
+  jsonLd={jsonLd}
 >
   <main class="page-shell">
     <Breadcrumbs items={[{ label: "About" }]} />

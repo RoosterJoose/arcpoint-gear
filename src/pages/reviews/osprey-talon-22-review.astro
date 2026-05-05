@@ -13,6 +13,17 @@ import RelatedArticles from "../../components/RelatedArticles.astro";
 import AffiliateButton from "../../components/AffiliateButton.astro";
 import { ospreyTalon22 } from "../../data/products";
 import { relatedArticles } from "../../data/articles";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildReviewSchema,
+} from "../../utils/seo";
+
+const title = "Osprey Talon 22 Review: Still the Benchmark Daypack?";
+const description =
+  "A research review of the Osprey Talon 22 daypack focused on specifications, fit profile, use case, pros, cons, and buying guidance.";
+const canonical = "/reviews/osprey-talon-22-review";
 
 const faqs = [
   {
@@ -31,26 +42,48 @@ const faqs = [
       "No. We use price tiers because online retail prices change frequently and should be checked at the retailer.",
   },
 ];
+
+const breadcrumbs = [
+  { label: "Hiking", href: "/category/hiking" },
+  { label: title, href: canonical },
+];
+
+const jsonLd = [
+  buildBreadcrumbSchema(breadcrumbs),
+  buildArticleSchema({
+    title,
+    description,
+    canonical,
+    type: "Article",
+    section: "Hiking",
+    keywords: ["Osprey Talon 22", "daypack", "hiking backpack", "research review"],
+  }),
+  buildReviewSchema({
+    product: ospreyTalon22,
+    canonical,
+    title,
+    reviewBody:
+      "Research Review based on product specifications, category comparison, and owner feedback themes. ArcPoint Gear does not claim hands-on field testing for this review.",
+  }),
+  buildFAQSchema(faqs),
+];
 ---
 
 <Layout
-  title="Osprey Talon 22 Review: Still the Benchmark Daypack? | ArcPoint Gear"
-  description="A research review of the Osprey Talon 22 daypack focused on specifications, fit profile, use case, pros, cons, and buying guidance."
-  canonical="/reviews/osprey-talon-22-review"
+  title={`${title} | ArcPoint Gear`}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <main class="article-shell">
-    <Breadcrumbs
-      items={[
-        { label: "Hiking", href: "/category/hiking" },
-        { label: "Osprey Talon 22 Review" },
-      ]}
-    />
+    <Breadcrumbs items={[{ label: "Hiking", href: "/category/hiking" }, { label: title }]} />
     <header class="article-hero" data-reveal>
       <div class="badge-row">
         <CategoryBadge label="Hiking" href="/category/hiking" />
         <ArticleTypeBadge label="Research Review" />
       </div>
-      <h1>Osprey Talon 22 Review: Still the Benchmark Daypack?</h1>
+      <h1>{title}</h1>
       <p>
         Based on product specifications, category comparison, and owner feedback, this research
         review evaluates where the Talon 22 still looks strongest and where lighter alternatives
@@ -61,7 +94,9 @@ const faqs = [
         <span>Updated May 4, 2026</span>
         <span>9 min read</span>
       </div>
-      <div class="article-visual"><span>Osprey Talon 22 / Research Review</span></div>
+      <div class="article-visual article-visual-review">
+        <span>Osprey Talon 22 / Research Review</span>
+      </div>
     </header>
 
     <DisclosureNote />
@@ -116,12 +151,16 @@ const faqs = [
         <ProsCons pros={ospreyTalon22.pros} cons={ospreyTalon22.cons} />
         <div id="verdict">
           <VerdictBox
+            score={ospreyTalon22.score}
             text="The Osprey Talon 22 is still one of the most complete research-review picks for hikers who want a technical daypack with stable carry, smart access, and mountain-ready organization."
           />
         </div>
         <section class="cta-panel" data-reveal>
-          <h2>Check current retailer availability</h2>
-          <p>Price tier: $$$. Exact retailer pricing may change.</p>
+          <div>
+            <p class="eyebrow">Retailer Check</p>
+            <h2>Check current retailer availability</h2>
+            <p>Price tier: $$$. Exact retailer pricing may change. Affiliate link disclosure applies.</p>
+          </div>
           <AffiliateButton />
         </section>
         <FAQSection faqs={faqs} />

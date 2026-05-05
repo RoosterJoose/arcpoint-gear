@@ -2,15 +2,26 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
+import {
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  serializeJsonLd,
+} from "../utils/seo";
 import "../styles/global.css";
 
 const {
   title = site.title,
   description = site.description,
   canonical = Astro.url.pathname,
+  ogType = "website",
+  image = site.ogImage,
+  jsonLd = [],
 } = Astro.props;
 
 const canonicalUrl = new URL(canonical, site.url).toString();
+const imageUrl = new URL(image, site.url).toString();
+const schemas = [buildOrganizationSchema(), buildWebSiteSchema(), ...jsonLd];
+const jsonLdString = serializeJsonLd(schemas);
 ---
 
 <!doctype html>
@@ -26,8 +37,15 @@ const canonicalUrl = new URL(canonical, site.url).toString();
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={jsonLdString} />
   </head>
   <body>
     <Header />

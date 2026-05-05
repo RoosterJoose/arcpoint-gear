@@ -25,5 +25,8 @@ const { product } = Astro.props;
       <dd>{product.bestFor}</dd>
     </div>
   </dl>
-  <AffiliateButton href={product.affiliateUrl} />
+  <div class="summary-cta">
+    <AffiliateButton href={product.affiliateUrl} />
+    <small>Exact retailer pricing may change. ArcPoint Gear uses price tiers only.</small>
+  </div>
 </aside>

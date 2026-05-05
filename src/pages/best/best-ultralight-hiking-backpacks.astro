@@ -6,6 +6,17 @@ import ComparisonTable from "../../components/ComparisonTable.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import AffiliateButton from "../../components/AffiliateButton.astro";
 import { roundupProducts } from "../../data/products";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildItemListSchema,
+} from "../../utils/seo";
+
+const title = "Best Ultralight Hiking Backpacks for Fast Mountain Days";
+const description =
+  "Ranked research picks for ultralight hiking backpacks, including comparison table, buying advice, and practical use-case recommendations.";
+const canonical = "/best/best-ultralight-hiking-backpacks";
 
 const tableRows = [
   ["Pick", "Product", "Price Tier", "Best For"],
@@ -26,13 +37,43 @@ const faqs = [
     question: "Should I choose the lightest pack?",
     answer: "Not always. Suspension, fit, and pocket access can matter more than shaving a few ounces.",
   },
+  {
+    question: "Is this roundup based on hands-on testing?",
+    answer:
+      "This Phase 1 roundup is a research-led buying guide based on specifications, category comparison, and owner feedback themes. It does not claim hands-on field testing.",
+  },
+];
+
+const breadcrumbs = [
+  { label: "Hiking", href: "/category/hiking" },
+  { label: "Best Ultralight Hiking Backpacks", href: canonical },
+];
+
+const jsonLd = [
+  buildBreadcrumbSchema(breadcrumbs),
+  buildArticleSchema({
+    title,
+    description,
+    canonical,
+    type: "Article",
+    section: "Hiking",
+    keywords: ["ultralight hiking backpacks", "daypacks", "buying guide"],
+  }),
+  buildItemListSchema({
+    name: title,
+    canonical,
+    items: roundupProducts,
+  }),
+  buildFAQSchema(faqs),
 ];
 ---
 
 <Layout
-  title="Best Ultralight Hiking Backpacks for Fast Mountain Days | ArcPoint Gear"
-  description="Ranked research picks for ultralight hiking backpacks, including comparison table, buying advice, and practical use-case recommendations."
-  canonical="/best/best-ultralight-hiking-backpacks"
+  title={`${title} | ArcPoint Gear`}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <main class="article-shell">
     <Breadcrumbs items={[{ label: "Hiking", href: "/category/hiking" }, { label: "Best Ultralight Hiking Backpacks" }]} />
@@ -41,7 +82,7 @@ const faqs = [
         <span class="badge badge-category">Hiking</span>
         <span class="badge badge-type">Buying Guide</span>
       </div>
-      <h1>Best Ultralight Hiking Backpacks for Fast Mountain Days</h1>
+      <h1>{title}</h1>
       <p>
         A research-led shortlist for hikers who want speed, stability, and enough organization
         for real mountain conditions without carrying unnecessary pack weight.
@@ -51,11 +92,17 @@ const faqs = [
         <span>Updated May 4, 2026</span>
         <span>12 min read</span>
       </div>
-      <div class="article-visual"><span>Ultralight Pack Shortlist</span></div>
+      <div class="article-visual article-visual-roundup"><span>Ultralight Pack Shortlist</span></div>
     </header>
     <DisclosureNote />
 
-    <section class="ranked-grid" data-reveal>
+    <section class="article-section ranked-products" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Ranked Shortlist</p>
+        <h2>Best picks by use case</h2>
+        <p>Price tiers are used instead of live retail prices so the guidance stays honest as retailer pricing changes.</p>
+      </div>
+      <div class="ranked-grid">
       {roundupProducts.map((product) => (
         <article class="ranked-card">
           <span>{product.rank}</span>
@@ -69,6 +116,7 @@ const faqs = [
           <AffiliateButton label="Check Current Price" />
         </article>
       ))}
+      </div>
     </section>
 
     <ComparisonTable rows={tableRows} title="Ultralight Hiking Backpack Comparison" />
@@ -80,6 +128,20 @@ const faqs = [
         equipment. For fast mountain days, prioritize fit, hydration access, shoulder pocket utility,
         and whether the pack stays quiet when moving quickly.
       </p>
+      <h2>What to Avoid</h2>
+      <p>
+        Avoid choosing a pack by listed weight alone. A pack that is too small, too frameless, or
+        poorly fitted can make a fast day feel sloppy once water, shell layers, food, and safety
+        equipment are loaded.
+      </p>
+    </section>
+    <section class="cta-panel" data-reveal>
+      <div>
+        <p class="eyebrow">Affiliate Disclosure</p>
+        <h2>Compare current retailer availability</h2>
+        <p>Buttons use placeholder affiliate links. ArcPoint Gear uses price tiers only and does not display exact Amazon prices.</p>
+      </div>
+      <AffiliateButton label="Check Current Price" />
     </section>
     <FAQSection faqs={faqs} />
   </main>

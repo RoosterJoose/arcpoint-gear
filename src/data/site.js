@@ -6,6 +6,7 @@ export const site = {
   url: "https://arcpointgear.com",
   email: "editorial@arcpointgear.com",
   affiliateUrl: "https://www.amazon.com/?tag=arcpointgear-20",
+  ogImage: "/og-default.svg",
 };
 
 export const navItems = [

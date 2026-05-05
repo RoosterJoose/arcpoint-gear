@@ -1,12 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { buildBreadcrumbSchema } from "../utils/seo";
+
+const jsonLd = [buildBreadcrumbSchema([{ label: "Privacy Policy", href: "/privacy" }])];
 ---
 
 <Layout
   title="Privacy Policy | ArcPoint Gear"
   description="A simple professional privacy policy placeholder for ArcPoint Gear."
   canonical="/privacy"
+  jsonLd={jsonLd}
 >
   <main class="page-shell">
     <Breadcrumbs items={[{ label: "Privacy Policy" }]} />

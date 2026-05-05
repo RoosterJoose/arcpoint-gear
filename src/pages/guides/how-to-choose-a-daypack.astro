@@ -3,6 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import SpecTable from "../../components/SpecTable.astro";
+import DisclosureNote from "../../components/DisclosureNote.astro";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "../../utils/seo";
+
+const title = "How to Choose a Daypack for Hiking";
+const description =
+  "A practical buying guide for choosing hiking daypack capacity, fit, suspension, weather resistance, weight, and common mistakes to avoid.";
+const canonical = "/guides/how-to-choose-a-daypack";
 
 const specRows = [
   ["Fast local hikes", "12-20 L"],
@@ -14,13 +21,34 @@ const specRows = [
 const faqs = [
   { question: "Is a 22-liter daypack big enough?", answer: "For many three-season day hikes, yes. Cold weather, camera gear, or family carry duties may require more volume." },
   { question: "Do I need a hipbelt?", answer: "A real hipbelt helps with heavier loads. Minimal waist straps mostly stabilize the pack." },
+  { question: "Is this guide based on field testing?", answer: "This is a research-based buying guide. It focuses on specifications, fit principles, category comparison, and practical buying factors rather than claiming hands-on field testing." },
+];
+
+const breadcrumbs = [
+  { label: "Guides" },
+  { label: "How to Choose a Daypack", href: canonical },
+];
+
+const jsonLd = [
+  buildBreadcrumbSchema(breadcrumbs),
+  buildArticleSchema({
+    title,
+    description,
+    canonical,
+    type: "Article",
+    section: "Hiking",
+    keywords: ["hiking daypack", "daypack buying guide", "backpack fit"],
+  }),
+  buildFAQSchema(faqs),
 ];
 ---
 
 <Layout
-  title="How to Choose a Daypack for Hiking | ArcPoint Gear"
-  description="A practical buying guide for choosing hiking daypack capacity, fit, suspension, weather resistance, weight, and common mistakes to avoid."
-  canonical="/guides/how-to-choose-a-daypack"
+  title={`${title} | ArcPoint Gear`}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <main class="article-shell">
     <Breadcrumbs items={[{ label: "Guides" }, { label: "How to Choose a Daypack" }]} />
@@ -29,7 +57,7 @@ const faqs = [
         <span class="badge badge-category">Hiking</span>
         <span class="badge badge-type">Buying Guide</span>
       </div>
-      <h1>How to Choose a Daypack for Hiking</h1>
+      <h1>{title}</h1>
       <p>
         A clean decision framework for capacity, fit, suspension, weight, weather resistance,
         and pocket layout.
@@ -39,7 +67,26 @@ const faqs = [
         <span>Updated May 4, 2026</span>
         <span>8 min read</span>
       </div>
+      <div class="article-visual article-visual-guide"><span>Daypack Buying Framework</span></div>
     </header>
+    <DisclosureNote />
+    <section class="guide-factor-grid" data-reveal>
+      <article>
+        <span>01</span>
+        <h2>Start With Load</h2>
+        <p>Map your route, season, water needs, layers, snacks, and safety kit before looking at pack volume.</p>
+      </article>
+      <article>
+        <span>02</span>
+        <h2>Fit Comes First</h2>
+        <p>Prioritize torso fit, shoulder strap shape, and whether the hipbelt transfers load or simply stabilizes.</p>
+      </article>
+      <article>
+        <span>03</span>
+        <h2>Match the Weather</h2>
+        <p>Look for durable fabrics, protected zippers, water-resistant coatings, and realistic pack-cover compatibility.</p>
+      </article>
+    </section>
     <section class="content-block" data-reveal>
       <h2>Buying Factors</h2>
       <p>
@@ -47,15 +94,11 @@ const faqs = [
         best pack is not the biggest or lightest one; it is the one that carries your real load
         without wasted bulk.
       </p>
-      <h2>Fit and Suspension</h2>
+      <h2>Capacity Guidance</h2>
       <p>
-        Prioritize torso fit, shoulder strap shape, backpanel comfort, and whether the hipbelt is
-        designed for load transfer or basic stabilization.
-      </p>
-      <h2>Weather Resistance</h2>
-      <p>
-        Look for durable face fabrics, covered zippers, water-resistant coatings, and pack-cover
-        compatibility. Waterproof claims should be treated carefully unless construction supports it.
+        Most hikers land between 20 and 28 liters for three-season day hikes. Move smaller only
+        when your kit is dialed, and move larger when weather, camera gear, family gear, or long
+        water carries make the extra space useful.
       </p>
       <h2>Common Mistakes</h2>
       <p>

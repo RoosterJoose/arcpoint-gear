@@ -4,6 +4,7 @@ import ArticleCard from "../../components/ArticleCard.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import { categories } from "../../data/categories";
 import { articles } from "../../data/articles";
+import { buildBreadcrumbSchema } from "../../utils/seo";
 
 export function getStaticPaths() {
   return categories.map((category) => ({ params: { slug: category.slug }, props: { category } }));
@@ -14,20 +15,28 @@ const matchedArticles = articles.filter((article) => article.categorySlug === ca
 const fallbackArticles = articles.slice(0, 3);
 const pageArticles = matchedArticles.length ? matchedArticles : fallbackArticles;
 const articleCountClass = `category-article-grid count-${Math.min(pageArticles.length, 3)}`;
+const canonical = `/category/${category.slug}`;
+const categoryTitle = category.name.endsWith("Gear") ? category.name : `${category.name} Gear`;
+const categoryEyebrow =
+  category.slug === "performance-gear"
+    ? "Technical apparel, shells, insulation, wearables, and high-output systems."
+    : category.accent;
+const jsonLd = [buildBreadcrumbSchema([{ label: category.name, href: canonical }])];
 ---
 
 <Layout
-  title={`${category.name} Gear | ArcPoint Gear`}
+  title={`${categoryTitle} | ArcPoint Gear`}
   description={category.description}
-  canonical={`/category/${category.slug}`}
+  canonical={canonical}
+  jsonLd={jsonLd}
 >
   <main class="page-shell category-page">
     <div class="category-breadcrumbs">
       <Breadcrumbs items={[{ label: category.name }]} />
     </div>
     <section class="page-hero category-hero" data-reveal>
-      <p class="eyebrow">{category.accent}</p>
-      <h1>{category.name} Gear</h1>
+      <p class="eyebrow">{categoryEyebrow}</p>
+      <h1>{categoryTitle}</h1>
       <p>{category.description}</p>
       <div class="hero-stats category-stats" aria-label={`${category.name} coverage focus`}>
         <span><strong>Focus</strong> {category.focus}</span>
@@ -39,7 +48,7 @@ const articleCountClass = `category-article-grid count-${Math.min(pageArticles.l
     <section class="category-reports" data-reveal>
       <div class="section-heading">
         <p class="eyebrow">Category Desk</p>
-        <h2>Reports and shortlists for {category.name.toLowerCase()} equipment.</h2>
+        <h2>Reports and shortlists for {categoryTitle.toLowerCase()}.</h2>
         <p>
           Research reviews, spec analysis, and buying guidance are organized around practical
           use cases, not hype cycles.
