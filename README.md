@@ -34,9 +34,9 @@ Phase 1 front-end publishing foundation. No CMS, backend, user accounts, payment
 
 1. OpenClaw creates draft JSON in the format documented in `src/content-inbox/README.md`.
 2. Draft JSON is submitted through a GitHub PR.
-3. Codex performs compliance review for claims, method labels, affiliate disclosure, Amazon pricing, Amazon review counts, and image policy.
+3. Codex performs compliance review for claims, method labels, affiliate disclosure, Amazon pricing, Amazon review counts, and image-handling policy.
 4. Approved drafts are converted to published article data in `src/data/articleContent.js`.
 5. Run `npm run build`.
 6. Deploy `dist/` to StartHost.
 
-Drafts in `src/content-inbox/` are not published automatically.
+Drafts in `src/content-inbox/` are not published automatically. Amazon product metadata and Amazon image references may be included in draft packages for review workflows, but all drafts still require human review before publication.
