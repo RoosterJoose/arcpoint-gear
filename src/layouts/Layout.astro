@@ -36,6 +36,7 @@ const canonicalUrl = new URL(canonical, site.url).toString();
     <script>
       const header = document.querySelector("[data-site-header]");
       const revealItems = document.querySelectorAll("[data-reveal]");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       const setHeaderState = () => {
         header?.classList.toggle("is-scrolled", window.scrollY > 16);
@@ -44,7 +45,9 @@ const canonicalUrl = new URL(canonical, site.url).toString();
       setHeaderState();
       window.addEventListener("scroll", setHeaderState, { passive: true });
 
-      if ("IntersectionObserver" in window) {
+      if (reduceMotion) {
+        revealItems.forEach((item) => item.classList.add("is-visible"));
+      } else if ("IntersectionObserver" in window) {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {

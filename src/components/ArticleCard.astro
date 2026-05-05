@@ -5,9 +5,10 @@ import ArticleTypeBadge from "./ArticleTypeBadge.astro";
 const { article, compact = false } = Astro.props;
 ---
 
-<article class:list={["article-card", compact && "article-card-compact"]}>
+<article class:list={["article-card", compact && "article-card-compact"]} data-category={article.categorySlug}>
   <div class="card-visual">
     <span>{article.category}</span>
+    <strong>{article.type}</strong>
   </div>
   <div class="card-body">
     <div class="badge-row">
@@ -20,6 +21,6 @@ const { article, compact = false } = Astro.props;
       <span>{article.date}</span>
       <span>{article.readTime}</span>
     </div>
-    <a class="text-link" href={article.slug}>Read report</a>
+    <a class="text-link" href={article.slug}>Read report <span aria-hidden="true">&rarr;</span></a>
   </div>
 </article>

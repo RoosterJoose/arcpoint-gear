@@ -26,6 +26,11 @@ import { latestArticles } from "../data/articles";
           <a class="button button-primary" href="#latest">Latest Reports</a>
           <a class="button button-secondary" href="/how-we-rate-gear">How We Rate Gear</a>
         </div>
+        <div class="hero-stats" aria-label="ArcPoint Gear editorial focus">
+          <span><strong>8</strong> Gear Verticals</span>
+          <span><strong>4</strong> Review Labels</span>
+          <span><strong>0</strong> Fake Field Claims</span>
+        </div>
       </div>
       <div class="hero-panel" data-reveal>
         <div class="hero-visual">
@@ -39,6 +44,10 @@ import { latestArticles } from "../data/articles";
       <div class="section-heading">
         <p class="eyebrow">Latest Reports</p>
         <h2>Research-led gear calls for high-consequence kit decisions.</h2>
+        <p>
+          Every report is labeled by method so readers can separate research reviews, spec
+          analysis, comparisons, and buying advice at a glance.
+        </p>
       </div>
       <div class="article-grid">
         {latestArticles.map((article) => <ArticleCard article={article} />)}
@@ -49,6 +58,10 @@ import { latestArticles } from "../data/articles";
       <div class="section-heading">
         <p class="eyebrow">Gear Categories</p>
         <h2>Eight focused verticals, one technical editorial standard.</h2>
+        <p>
+          Built for readers comparing real equipment tradeoffs: fit, durability, weather
+          resistance, weight, materials, value, and use-case match.
+        </p>
       </div>
       <div class="category-grid">
         {categories.map((category) => <CategoryCard category={category} />)}

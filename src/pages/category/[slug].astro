@@ -13,6 +13,7 @@ const { category } = Astro.props;
 const matchedArticles = articles.filter((article) => article.categorySlug === category.slug);
 const fallbackArticles = articles.slice(0, 3);
 const pageArticles = matchedArticles.length ? matchedArticles : fallbackArticles;
+const articleCountClass = `category-article-grid count-${Math.min(pageArticles.length, 3)}`;
 ---
 
 <Layout
@@ -20,31 +21,52 @@ const pageArticles = matchedArticles.length ? matchedArticles : fallbackArticles
   description={category.description}
   canonical={`/category/${category.slug}`}
 >
-  <main class="page-shell">
-    <Breadcrumbs items={[{ label: category.name }]} />
-    <section class="page-hero" data-reveal>
+  <main class="page-shell category-page">
+    <div class="category-breadcrumbs">
+      <Breadcrumbs items={[{ label: category.name }]} />
+    </div>
+    <section class="page-hero category-hero" data-reveal>
       <p class="eyebrow">{category.accent}</p>
       <h1>{category.name} Gear</h1>
       <p>{category.description}</p>
+      <div class="hero-stats category-stats" aria-label={`${category.name} coverage focus`}>
+        <span><strong>Focus</strong> {category.focus}</span>
+        <span><strong>Method</strong> Research-led</span>
+        <span><strong>Pricing</strong> Tier only</span>
+      </div>
     </section>
 
-    <section class="section" data-reveal>
+    <section class="category-reports" data-reveal>
       <div class="section-heading">
         <p class="eyebrow">Category Desk</p>
         <h2>Reports and shortlists for {category.name.toLowerCase()} equipment.</h2>
+        <p>
+          Research reviews, spec analysis, and buying guidance are organized around practical
+          use cases, not hype cycles.
+        </p>
       </div>
-      <div class="article-grid">
+      <div class={articleCountClass}>
         {pageArticles.map((article) => <ArticleCard article={article} />)}
       </div>
     </section>
 
-    <section class="content-block" data-reveal>
-      <h2>Coming Research</h2>
-      <p>
-        This category will expand with research reviews, spec analysis, buying guides, and
-        comparison reports. Early coverage focuses on products where fit, durability, weather
-        resistance, and value meaningfully change the buying decision.
-      </p>
+    <section class="content-block category-note" data-reveal>
+      <div>
+        <p class="eyebrow">Editorial Queue</p>
+        <h2>Coming Research</h2>
+      </div>
+      <div>
+        <p>
+          This category will expand with research reviews, spec analysis, buying guides, and
+          comparison reports. Early coverage focuses on products where fit, durability, weather
+          resistance, and value meaningfully change the buying decision.
+        </p>
+        <p>
+          Placeholder report cards are intentionally labeled as previews or category links until a
+          full editorial page exists. ArcPoint Gear does not present research queues as field-tested
+          reviews.
+        </p>
+      </div>
     </section>
   </main>
 </Layout>
