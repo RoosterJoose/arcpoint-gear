@@ -31,7 +31,8 @@ OpenClaw should output one JSON object per draft article:
       "productName": "Example Product",
       "brand": "Example Brand",
       "asin": "B000000000",
-      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "amazonUrl": "https://www.amazon.com/dp/B000000000",
+      "affiliateUrl": "https://www.amazon.com/dp/B000000000?tag=arcpointgear-20",
       "badge": "Best Overall",
       "priceTier": "$$$",
       "arcpointScore": "8.7",
@@ -47,7 +48,11 @@ OpenClaw should output one JSON object per draft article:
       "cons": [
         "Research-supported limitation"
       ],
-      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+      "images": {
+        "primary": "https://m.media-amazon.com/images/I/EXAMPLE.jpg",
+        "source": "amazon"
+      },
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
     }
   ],
   "sections": [
@@ -73,9 +78,9 @@ OpenClaw should output one JSON object per draft article:
   ],
   "sources": [
     {
-      "title": "Manufacturer specifications",
-      "url": "https://example.com/product",
-      "sourceType": "manufacturer"
+      "title": "Amazon product listing",
+      "url": "https://www.amazon.com/dp/B000000000",
+      "sourceType": "amazon"
     }
   ],
   "complianceNotes": {
@@ -83,7 +88,7 @@ OpenClaw should output one JSON object per draft article:
     "handsOnTestingClaimed": false,
     "usesExactAmazonPrices": false,
     "usesAmazonReviewCounts": false,
-    "usesScrapedAmazonImages": false,
+    "usesAmazonProductImages": true,
     "usesCopiedAmazonDescriptions": false,
     "usesPriceTiersOnly": true,
     "affiliateDisclosureVisible": true
@@ -98,6 +103,7 @@ Each product in `products` must include:
 - `productName`
 - `brand`
 - `asin`
+- `amazonUrl`
 - `affiliateUrl`
 - `badge`
 - `priceTier`
@@ -107,6 +113,7 @@ Each product in `products` must include:
 - `specs`
 - `pros`
 - `cons`
+- `images`
 - `imagePolicy`
 
 ## Compliance Guidance
@@ -114,8 +121,9 @@ Each product in `products` must include:
 - No fake hands-on testing claims.
 - No exact Amazon prices.
 - No Amazon review counts.
-- No scraped Amazon images.
+- Amazon product image references may be included in draft packages for review workflows.
 - No copied Amazon product descriptions.
+- Amazon product data and Amazon image references are allowed in draft packages.
 - Visible affiliate disclosure required.
 - Article must state whether it is `Research Review`, `Spec Analysis`, or `Field-Tested Review`.
 - If the article is not explicitly `Field-Tested Review`, use language like “based on specifications, category comparison, and owner feedback themes.”
