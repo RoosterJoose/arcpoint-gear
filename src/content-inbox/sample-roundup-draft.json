@@ -20,16 +20,25 @@
       "productName": "Chair Zero",
       "brand": "Helinox",
       "asin": "B000000001",
-      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "affiliateUrl": "https://www.amazon.com/dp/B000000001?tag=arcpointgear-20",
       "badge": "Best Overall",
       "priceTier": "$$$$",
       "arcpointScore": "8.9",
       "bestFor": "Backpackers and campers who want a very light chair from a proven premium category leader.",
       "summary": "A research-based shortlist pick for users who prioritize low packed weight, compact carry, and a more technical chair design.",
       "specs": [
-        ["Best Use", "Backpacking and lightweight camping"],
-        ["Chair Type", "Compact folding chair"],
-        ["Price Tier", "$$$$"]
+        [
+          "Best Use",
+          "Backpacking and lightweight camping"
+        ],
+        [
+          "Chair Type",
+          "Compact folding chair"
+        ],
+        [
+          "Price Tier",
+          "$$$$"
+        ]
       ],
       "pros": [
         "Strong fit for weight-conscious camping kits",
@@ -41,22 +50,36 @@
         "Low seat height may not suit every user",
         "Less plush than full-size car-camping chairs"
       ],
-      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "amazonUrl": "https://www.amazon.com/dp/B000000001",
+      "images": {
+        "primary": "https://m.media-amazon.com/images/I/EXAMPLE1.jpg",
+        "source": "amazon"
+      }
     },
     {
       "productName": "Flexlite Air Chair",
       "brand": "REI Co-op",
       "asin": "B000000002",
-      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "affiliateUrl": "https://www.amazon.com/dp/B000000002?tag=arcpointgear-20",
       "badge": "Best Value",
       "priceTier": "$$$",
       "arcpointScore": "8.4",
       "bestFor": "Campers who want a lighter chair without moving into the highest premium price tier.",
       "summary": "A research-based value pick for buyers comparing packed weight, support, and cost within the lightweight chair category.",
       "specs": [
-        ["Best Use", "Lightweight camping"],
-        ["Chair Type", "Compact folding chair"],
-        ["Price Tier", "$$$"]
+        [
+          "Best Use",
+          "Lightweight camping"
+        ],
+        [
+          "Chair Type",
+          "Compact folding chair"
+        ],
+        [
+          "Price Tier",
+          "$$$"
+        ]
       ],
       "pros": [
         "Balanced value profile",
@@ -68,22 +91,36 @@
         "Support and stability depend on terrain",
         "May still be more chair than minimalist hikers want"
       ],
-      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "amazonUrl": "https://www.amazon.com/dp/B000000002",
+      "images": {
+        "primary": "https://m.media-amazon.com/images/I/EXAMPLE2.jpg",
+        "source": "amazon"
+      }
     },
     {
       "productName": "Mica Basin Camp Chair",
       "brand": "Big Agnes",
       "asin": "B000000003",
-      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "affiliateUrl": "https://www.amazon.com/dp/B000000003?tag=arcpointgear-20",
       "badge": "Best for Basecamp Comfort",
       "priceTier": "$$$$",
       "arcpointScore": "8.6",
       "bestFor": "Campers who are willing to carry more chair for better comfort around camp.",
       "summary": "A research-based comfort pick for users who care more about camp relaxation than absolute minimum packed weight.",
       "specs": [
-        ["Best Use", "Camping and basecamp"],
-        ["Chair Type", "Supportive folding chair"],
-        ["Price Tier", "$$$$"]
+        [
+          "Best Use",
+          "Camping and basecamp"
+        ],
+        [
+          "Chair Type",
+          "Supportive folding chair"
+        ],
+        [
+          "Price Tier",
+          "$$$$"
+        ]
       ],
       "pros": [
         "Comfort-forward category positioning",
@@ -95,7 +132,12 @@
         "Higher price tier",
         "Packed size may be larger than minimalist alternatives"
       ],
-      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "amazonUrl": "https://www.amazon.com/dp/B000000003",
+      "images": {
+        "primary": "https://m.media-amazon.com/images/I/EXAMPLE3.jpg",
+        "source": "amazon"
+      }
     }
   ],
   "sections": [
@@ -136,6 +178,11 @@
   ],
   "sources": [
     {
+      "title": "Amazon product listings",
+      "url": "https://www.amazon.com/s?k=lightweight+camping+chairs",
+      "sourceType": "amazon"
+    },
+    {
       "title": "Manufacturer product specifications",
       "url": "https://example.com/manufacturer-chair-specs",
       "sourceType": "manufacturer"
@@ -151,9 +198,9 @@
     "handsOnTestingClaimed": false,
     "usesExactAmazonPrices": false,
     "usesAmazonReviewCounts": false,
-    "usesScrapedAmazonImages": false,
     "usesCopiedAmazonDescriptions": false,
     "usesPriceTiersOnly": true,
-    "affiliateDisclosureVisible": true
+    "affiliateDisclosureVisible": true,
+    "usesAmazonProductImages": true
   }
 }
