@@ -37,6 +37,8 @@ const jsonLd = article
         description,
         canonical,
         type: "Article",
+        datePublished: article.datePublished,
+        dateModified: article.dateModified,
         section: article.category,
         keywords: article.keywords,
       }),
@@ -45,7 +47,7 @@ const jsonLd = article
         canonical,
         items: article.products,
       }),
-      buildFAQSchema(faqs),
+      faqs.length ? buildFAQSchema(faqs) : undefined,
     ]
   : [];
 ---

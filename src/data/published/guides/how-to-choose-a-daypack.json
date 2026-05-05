@@ -1,0 +1,97 @@
+{
+  "articleType": "guide",
+  "status": "published",
+  "title": "How to Choose a Daypack for Hiking",
+  "slug": "how-to-choose-a-daypack",
+  "canonical": "/guides/how-to-choose-a-daypack",
+  "category": {
+    "name": "Hiking",
+    "slug": "hiking"
+  },
+  "label": "Buying Guide",
+  "seoTitle": "How to Choose a Daypack for Hiking | ArcPoint Gear",
+  "metaDescription": "A practical buying guide for choosing hiking daypack capacity, fit, suspension, weather resistance, weight, and common mistakes to avoid.",
+  "date": "Updated May 4, 2026",
+  "datePublished": "2026-05-04",
+  "dateModified": "2026-05-04",
+  "readTime": "8 min read",
+  "excerpt": "A clear framework for choosing capacity, suspension, fit, materials, weather resistance, and pockets without overbuying.",
+  "heroLabel": "Daypack Buying Framework",
+  "keywords": ["hiking daypack", "daypack buying guide", "backpack fit"],
+  "intro": [
+    "A clean decision framework for capacity, fit, suspension, weight, weather resistance, and pocket layout."
+  ],
+  "disclosure": "ArcPoint Gear uses research-based buying guidance and price tiers only when retailer pricing is discussed.",
+  "factors": [
+    {
+      "label": "01",
+      "title": "Start With Load",
+      "text": "Map your route, season, water needs, layers, snacks, and safety kit before looking at pack volume."
+    },
+    {
+      "label": "02",
+      "title": "Fit Comes First",
+      "text": "Prioritize torso fit, shoulder strap shape, and whether the hipbelt transfers load or simply stabilizes."
+    },
+    {
+      "label": "03",
+      "title": "Match the Weather",
+      "text": "Look for durable fabrics, protected zippers, water-resistant coatings, and realistic pack-cover compatibility."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Buying Factors",
+      "body": [
+        "Choose a daypack by mapping your route, season, water needs, layers, and safety kit. The best pack is not the biggest or lightest one; it is the one that carries your real load without wasted bulk."
+      ]
+    },
+    {
+      "heading": "Capacity Guidance",
+      "body": [
+        "Most hikers land between 20 and 28 liters for three-season day hikes. Move smaller only when your kit is dialed, and move larger when weather, camera gear, family gear, or long water carries make the extra space useful."
+      ]
+    },
+    {
+      "heading": "Common Mistakes",
+      "body": [
+        "Common mistakes include buying too much volume, ignoring torso fit, choosing fashion pockets over trail access, and forgetting that water weight changes carry comfort quickly."
+      ]
+    }
+  ],
+  "specRows": [
+    ["Fast local hikes", "12-20 L"],
+    ["Standard day hikes", "20-28 L"],
+    ["Long days or shoulder season", "24-35 L"],
+    ["Useful features", "Hydration sleeve, hipbelt pockets, compression, weather-resistant fabric"]
+  ],
+  "faqs": [
+    {
+      "question": "Is a 22-liter daypack big enough?",
+      "answer": "For many three-season day hikes, yes. Cold weather, camera gear, or family carry duties may require more volume."
+    },
+    {
+      "question": "Do I need a hipbelt?",
+      "answer": "A real hipbelt helps with heavier loads. Minimal waist straps mostly stabilize the pack."
+    },
+    {
+      "question": "Is this guide based on field testing?",
+      "answer": "This is a research-based buying guide. It focuses on specifications, fit principles, category comparison, and practical buying factors rather than claiming hands-on field testing."
+    }
+  ],
+  "complianceNotes": {
+    "methodLabel": "Buying Guide",
+    "handsOnTestingClaimed": false,
+    "usesExactAmazonPrices": false,
+    "usesAmazonReviewCounts": false,
+    "usesCopiedAmazonDescriptions": false,
+    "usesPriceTiersOnly": true,
+    "usesAmazonProductImages": false,
+    "amazonImageSource": "none",
+    "selfHostsAmazonImages": false,
+    "usesScrapedAmazonPages": false,
+    "affiliateDisclosureVisible": true,
+    "requiresHumanReview": false,
+    "approvedForPublication": true
+  }
+}

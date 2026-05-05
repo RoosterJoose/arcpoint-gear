@@ -1,5 +1,3 @@
-import bestUltralightHikingBackpacks from "./published/roundups/best-ultralight-hiking-backpacks.json";
-
 type PublishedArticle = {
   articleType: "review" | "roundup" | "guide" | "comparison";
   status: "published";
@@ -31,6 +29,41 @@ type PublishedArticle = {
     weightClass?: string;
     affiliateUrl?: string;
   }>;
+  product?: {
+    name: string;
+    category: string;
+    priceTier: string;
+    score: string;
+    bestFor: string;
+    affiliateUrl: string;
+    specs: string[][];
+    pros: string[];
+    cons: string[];
+  };
+  buySkip?: {
+    buy: string;
+    skip: string;
+  };
+  analysis?: string[];
+  verdict?: string;
+  cta?: {
+    label: string;
+    href: string;
+    priceTier?: string;
+    disclosure: string;
+  };
+  factors?: Array<{
+    label: string;
+    title: string;
+    text: string;
+  }>;
+  specRows?: string[][];
+  tableRows?: string[][];
+  winners?: Array<{
+    label: string;
+    title: string;
+    text: string;
+  }>;
   sections?: Array<{
     heading: string;
     body: string[];
@@ -49,10 +82,16 @@ type PublishedArticle = {
   };
 };
 
-const publishedRoundups = [bestUltralightHikingBackpacks] as PublishedArticle[];
-const publishedReviews: PublishedArticle[] = [];
-const publishedGuides: PublishedArticle[] = [];
-const publishedComparisons: PublishedArticle[] = [];
+const publishedArticleModules = import.meta.glob<PublishedArticle>("./published/**/*.json", {
+  eager: true,
+  import: "default",
+});
+
+const publishedArticleSeeds = Object.values(publishedArticleModules);
+const publishedRoundups = publishedArticleSeeds.filter((article) => article.articleType === "roundup");
+const publishedReviews = publishedArticleSeeds.filter((article) => article.articleType === "review");
+const publishedGuides = publishedArticleSeeds.filter((article) => article.articleType === "guide");
+const publishedComparisons = publishedArticleSeeds.filter((article) => article.articleType === "comparison");
 
 const isApprovedPublishedArticle = (article: PublishedArticle) =>
   article.status === "published" &&
@@ -106,6 +145,62 @@ const normalizeRoundupArticle = (article: PublishedArticle) => ({
   approvedForPublication: article.complianceNotes.approvedForPublication,
 });
 
+const normalizeBaseArticle = (article: PublishedArticle, canonicalPrefix: string) => ({
+  kind: article.articleType,
+  title: article.title,
+  description: article.metaDescription,
+  canonical: article.canonical ?? `/${canonicalPrefix}/${article.slug}`,
+  category: article.category.name,
+  categorySlug: article.category.slug,
+  typeLabel: article.label,
+  date: article.date ?? "",
+  datePublished: article.datePublished,
+  dateModified: article.dateModified,
+  readTime: article.readTime ?? "",
+  excerpt: article.excerpt ?? article.metaDescription,
+  heroLabel: article.heroLabel ?? article.label,
+  keywords: article.keywords ?? [],
+  intro: article.intro,
+  disclosure: article.disclosure,
+  faqs: article.faqs ?? [],
+  relatedArticles: article.relatedArticles ?? [],
+  approvedForPublication: article.complianceNotes.approvedForPublication,
+});
+
+const normalizeReviewArticle = (article: PublishedArticle) => ({
+  ...normalizeBaseArticle(article, "reviews"),
+  product: article.product,
+  buySkip: article.buySkip ?? { buy: "", skip: "" },
+  analysis: article.analysis ?? [],
+  verdict: article.verdict ?? "",
+  cta: article.cta ?? {
+    label: "Check Price on Amazon",
+    href: article.product?.affiliateUrl ?? "https://www.amazon.com/?tag=arcpointgear-20",
+    priceTier: article.product?.priceTier,
+    disclosure: article.disclosure,
+  },
+});
+
+const normalizeGuideArticle = (article: PublishedArticle) => ({
+  ...normalizeBaseArticle(article, "guides"),
+  factors: article.factors ?? [],
+  sections: (article.sections ?? []).map((section) => ({
+    title: section.heading,
+    text: section.body.join("\n\n"),
+  })),
+  specRows: article.specRows ?? [],
+});
+
+const normalizeComparisonArticle = (article: PublishedArticle) => ({
+  ...normalizeBaseArticle(article, "compare"),
+  tableRows: article.tableRows ?? [],
+  winners: article.winners ?? [],
+  sections: (article.sections ?? []).map((section) => ({
+    title: section.heading,
+    text: section.body.join("\n\n"),
+  })),
+});
+
 export const publishedArticles = [
   ...publishedRoundups,
   ...publishedReviews,
@@ -129,4 +224,19 @@ export const getPublishedArticleBySlug = (slug: string) =>
 export const getPublishedRoundupBySlug = (slug: string) => {
   const article = publishedArticlesByType.roundups.find((item) => item.slug === slug);
   return article ? normalizeRoundupArticle(article) : undefined;
+};
+
+export const getPublishedReviewBySlug = (slug: string) => {
+  const article = publishedArticlesByType.reviews.find((item) => item.slug === slug);
+  return article ? normalizeReviewArticle(article) : undefined;
+};
+
+export const getPublishedGuideBySlug = (slug: string) => {
+  const article = publishedArticlesByType.guides.find((item) => item.slug === slug);
+  return article ? normalizeGuideArticle(article) : undefined;
+};
+
+export const getPublishedComparisonBySlug = (slug: string) => {
+  const article = publishedArticlesByType.comparisons.find((item) => item.slug === slug);
+  return article ? normalizeComparisonArticle(article) : undefined;
 };
