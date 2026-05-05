@@ -4,19 +4,11 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import ComparisonTable from "../../components/ComparisonTable.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import DisclosureNote from "../../components/DisclosureNote.astro";
-import { daypackComparison } from "../../data/products";
+import { comparisonArticles } from "../../data/articleContent";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "../../utils/seo";
 
-const title = "Osprey Talon 22 vs Deuter Speed Lite: Which Daypack Is Better?";
-const description =
-  "A research comparison of the Osprey Talon 22 and Deuter Speed Lite for day hiking, fast hiking, organization, carry feel, and value.";
-const canonical = "/compare/osprey-talon-22-vs-deuter-speed-lite";
-
-const faqs = [
-  { question: "Which pack is better for faster hikes?", answer: "The Deuter Speed Lite profile is appealing for lean fast-hiking kits, while the Talon 22 is stronger for users who want more structure and organization." },
-  { question: "Which one should most hikers shortlist first?", answer: "Most hikers should start with the Talon 22 if they are unsure, then move lighter if they know they prefer a stripped-down carry." },
-  { question: "Is this comparison field-tested?", answer: "No. This is a Spec Analysis based on specifications, category comparison, and use-case fit. It does not claim hands-on testing." },
-];
+const article = comparisonArticles["osprey-talon-22-vs-deuter-speed-lite"];
+const { title, description, canonical, faqs } = article;
 
 const breadcrumbs = [
   { label: "Compare" },
@@ -30,8 +22,8 @@ const jsonLd = [
     description,
     canonical,
     type: "Article",
-    section: "Hiking",
-    keywords: ["Osprey Talon 22", "Deuter Speed Lite", "daypack comparison"],
+    section: article.category,
+    keywords: article.keywords,
   }),
   buildFAQSchema(faqs),
 ];
@@ -48,8 +40,8 @@ const jsonLd = [
     <Breadcrumbs items={[{ label: "Compare" }, { label: "Osprey Talon 22 vs Deuter Speed Lite" }]} />
     <header class="article-hero" data-reveal>
       <div class="badge-row">
-        <span class="badge badge-category">Hiking</span>
-        <span class="badge badge-type">Spec Analysis</span>
+        <span class="badge badge-category">{article.category}</span>
+        <span class="badge badge-type">{article.typeLabel}</span>
       </div>
       <h1>{title}</h1>
       <p>
@@ -58,43 +50,29 @@ const jsonLd = [
       </p>
       <div class="article-meta">
         <span>By ArcPoint Gear Editorial</span>
-        <span>Updated May 4, 2026</span>
-        <span>10 min read</span>
+        <span>{article.date}</span>
+        <span>{article.readTime}</span>
       </div>
-      <div class="article-visual article-visual-compare"><span>Structured Carry vs Fast-Light Kit</span></div>
+      <div class="article-visual article-visual-compare"><span>{article.heroLabel}</span></div>
     </header>
     <DisclosureNote />
-    <ComparisonTable rows={daypackComparison} title="Head-to-Head Comparison" />
+    <ComparisonTable rows={article.tableRows} title="Head-to-Head Comparison" />
     <section class="winner-grid" data-reveal>
-      <div>
-        <span>Best for structure</span>
-        <h2>Osprey Talon 22</h2>
-        <p>
-          Choose the Talon 22 for technical organization, structured carry, hydration access, and
-          broader hiking versatility.
-        </p>
-      </div>
-      <div>
-        <span>Best for lean kits</span>
-        <h2>Deuter Speed Lite</h2>
-        <p>
-          Choose the Speed Lite if your kit is dialed down and you value a simpler, lighter,
-          faster-moving profile.
-        </p>
-      </div>
+      {article.winners.map((winner) => (
+        <div>
+          <span>{winner.label}</span>
+          <h2>{winner.title}</h2>
+          <p>{winner.text}</p>
+        </div>
+      ))}
     </section>
     <section class="content-block" data-reveal>
-      <h2>Product Breakdowns</h2>
-      <p>
-        The Talon 22 reads as the more technical and organized pack. The Speed Lite reads as the
-        more streamlined choice. Neither is universally better; the right answer depends on load,
-        route, pace, and how much structure you want against your back.
-      </p>
-      <h2>Final Recommendation</h2>
-      <p>
-        For most day hikers, the Talon 22 is the more complete starting point. The Speed Lite
-        becomes more compelling once you already know that minimal carry is the priority.
-      </p>
+      {article.sections.map((section) => (
+        <>
+          <h2>{section.title}</h2>
+          <p>{section.text}</p>
+        </>
+      ))}
     </section>
     <FAQSection faqs={faqs} />
   </main>

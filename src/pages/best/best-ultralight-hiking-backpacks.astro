@@ -5,7 +5,7 @@ import DisclosureNote from "../../components/DisclosureNote.astro";
 import ComparisonTable from "../../components/ComparisonTable.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import AffiliateButton from "../../components/AffiliateButton.astro";
-import { roundupProducts } from "../../data/products";
+import { roundupArticles } from "../../data/articleContent";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -13,39 +13,11 @@ import {
   buildItemListSchema,
 } from "../../utils/seo";
 
-const title = "Best Ultralight Hiking Backpacks for Fast Mountain Days";
-const description =
-  "Ranked research picks for ultralight hiking backpacks, including comparison table, buying advice, and practical use-case recommendations.";
-const canonical = "/best/best-ultralight-hiking-backpacks";
-
-const tableRows = [
-  ["Pick", "Product", "Price Tier", "Best For"],
-  ...roundupProducts.map((product) => [
-    product.rank,
-    product.name,
-    product.priceTier,
-    product.bestFor,
-  ]),
-];
-
-const faqs = [
-  {
-    question: "What capacity is best for ultralight day hiking?",
-    answer: "Most fast mountain days fit well in the 18- to 30-liter range, depending on layers, water, and safety gear.",
-  },
-  {
-    question: "Should I choose the lightest pack?",
-    answer: "Not always. Suspension, fit, and pocket access can matter more than shaving a few ounces.",
-  },
-  {
-    question: "Is this roundup based on hands-on testing?",
-    answer:
-      "This Phase 1 roundup is a research-led buying guide based on specifications, category comparison, and owner feedback themes. It does not claim hands-on field testing.",
-  },
-];
+const article = roundupArticles["best-ultralight-hiking-backpacks"];
+const { title, description, canonical, faqs } = article;
 
 const breadcrumbs = [
-  { label: "Hiking", href: "/category/hiking" },
+  { label: article.category, href: `/category/${article.categorySlug}` },
   { label: "Best Ultralight Hiking Backpacks", href: canonical },
 ];
 
@@ -56,13 +28,13 @@ const jsonLd = [
     description,
     canonical,
     type: "Article",
-    section: "Hiking",
-    keywords: ["ultralight hiking backpacks", "daypacks", "buying guide"],
+    section: article.category,
+    keywords: article.keywords,
   }),
   buildItemListSchema({
     name: title,
     canonical,
-    items: roundupProducts,
+    items: article.products,
   }),
   buildFAQSchema(faqs),
 ];
@@ -76,11 +48,11 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <main class="article-shell">
-    <Breadcrumbs items={[{ label: "Hiking", href: "/category/hiking" }, { label: "Best Ultralight Hiking Backpacks" }]} />
+    <Breadcrumbs items={[{ label: article.category, href: `/category/${article.categorySlug}` }, { label: "Best Ultralight Hiking Backpacks" }]} />
     <header class="article-hero" data-reveal>
       <div class="badge-row">
-        <span class="badge badge-category">Hiking</span>
-        <span class="badge badge-type">Buying Guide</span>
+        <span class="badge badge-category">{article.category}</span>
+        <span class="badge badge-type">{article.typeLabel}</span>
       </div>
       <h1>{title}</h1>
       <p>
@@ -89,10 +61,10 @@ const jsonLd = [
       </p>
       <div class="article-meta">
         <span>By ArcPoint Gear Editorial</span>
-        <span>Updated May 4, 2026</span>
-        <span>12 min read</span>
+        <span>{article.date}</span>
+        <span>{article.readTime}</span>
       </div>
-      <div class="article-visual article-visual-roundup"><span>Ultralight Pack Shortlist</span></div>
+      <div class="article-visual article-visual-roundup"><span>{article.heroLabel}</span></div>
     </header>
     <DisclosureNote />
 
@@ -103,7 +75,7 @@ const jsonLd = [
         <p>Price tiers are used instead of live retail prices so the guidance stays honest as retailer pricing changes.</p>
       </div>
       <div class="ranked-grid">
-      {roundupProducts.map((product) => (
+      {article.products.map((product) => (
         <article class="ranked-card">
           <span>{product.rank}</span>
           <h2>{product.name}</h2>
@@ -113,35 +85,26 @@ const jsonLd = [
             <div><dt>Weight Class</dt><dd>{product.weightClass}</dd></div>
             <div><dt>Best For</dt><dd>{product.bestFor}</dd></div>
           </dl>
-          <AffiliateButton label="Check Current Price" />
+          <AffiliateButton href={article.cta.href} label={article.cta.label} />
         </article>
       ))}
       </div>
     </section>
 
-    <ComparisonTable rows={tableRows} title="Ultralight Hiking Backpack Comparison" />
+    <ComparisonTable rows={article.tableRows} title="Ultralight Hiking Backpack Comparison" />
     <section class="content-block" data-reveal>
       <h2>Buying Advice</h2>
-      <p>
-        Start with your actual load, not the product weight. A very light pack can feel worse than
-        a slightly heavier pack if the harness collapses under water, layers, camera gear, or safety
-        equipment. For fast mountain days, prioritize fit, hydration access, shoulder pocket utility,
-        and whether the pack stays quiet when moving quickly.
-      </p>
+      <p>{article.buyingAdvice[0]}</p>
       <h2>What to Avoid</h2>
-      <p>
-        Avoid choosing a pack by listed weight alone. A pack that is too small, too frameless, or
-        poorly fitted can make a fast day feel sloppy once water, shell layers, food, and safety
-        equipment are loaded.
-      </p>
+      <p>{article.buyingAdvice[1]}</p>
     </section>
     <section class="cta-panel" data-reveal>
       <div>
         <p class="eyebrow">Affiliate Disclosure</p>
         <h2>Compare current retailer availability</h2>
-        <p>Buttons use placeholder affiliate links. ArcPoint Gear uses price tiers only and does not display exact Amazon prices.</p>
+        <p>{article.cta.disclosure}</p>
       </div>
-      <AffiliateButton label="Check Current Price" />
+      <AffiliateButton href={article.cta.href} label={article.cta.label} />
     </section>
     <FAQSection faqs={faqs} />
   </main>

@@ -11,8 +11,8 @@ import VerdictBox from "../../components/VerdictBox.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import RelatedArticles from "../../components/RelatedArticles.astro";
 import AffiliateButton from "../../components/AffiliateButton.astro";
-import { ospreyTalon22 } from "../../data/products";
 import { relatedArticles } from "../../data/articles";
+import { reviewArticles } from "../../data/articleContent";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -20,31 +20,11 @@ import {
   buildReviewSchema,
 } from "../../utils/seo";
 
-const title = "Osprey Talon 22 Review: Still the Benchmark Daypack?";
-const description =
-  "A research review of the Osprey Talon 22 daypack focused on specifications, fit profile, use case, pros, cons, and buying guidance.";
-const canonical = "/reviews/osprey-talon-22-review";
-
-const faqs = [
-  {
-    question: "Is this a hands-on field-tested review?",
-    answer:
-      "No. This is a Research Review based on product specifications, category comparison, and owner feedback signals.",
-  },
-  {
-    question: "Who is the Osprey Talon 22 best for?",
-    answer:
-      "It is best suited to hikers who want a stable, technical daypack for fast day hikes, light scrambling, and organized trail carry.",
-  },
-  {
-    question: "Does ArcPoint Gear list exact Amazon prices?",
-    answer:
-      "No. We use price tiers because online retail prices change frequently and should be checked at the retailer.",
-  },
-];
+const article = reviewArticles["osprey-talon-22-review"];
+const { title, description, canonical, faqs, product } = article;
 
 const breadcrumbs = [
-  { label: "Hiking", href: "/category/hiking" },
+  { label: article.category, href: `/category/${article.categorySlug}` },
   { label: title, href: canonical },
 ];
 
@@ -55,11 +35,11 @@ const jsonLd = [
     description,
     canonical,
     type: "Article",
-    section: "Hiking",
-    keywords: ["Osprey Talon 22", "daypack", "hiking backpack", "research review"],
+    section: article.category,
+    keywords: article.keywords,
   }),
   buildReviewSchema({
-    product: ospreyTalon22,
+    product,
     canonical,
     title,
     reviewBody:
@@ -77,11 +57,11 @@ const jsonLd = [
   jsonLd={jsonLd}
 >
   <main class="article-shell">
-    <Breadcrumbs items={[{ label: "Hiking", href: "/category/hiking" }, { label: title }]} />
+    <Breadcrumbs items={[{ label: article.category, href: `/category/${article.categorySlug}` }, { label: title }]} />
     <header class="article-hero" data-reveal>
       <div class="badge-row">
-        <CategoryBadge label="Hiking" href="/category/hiking" />
-        <ArticleTypeBadge label="Research Review" />
+        <CategoryBadge label={article.category} href={`/category/${article.categorySlug}`} />
+        <ArticleTypeBadge label={article.typeLabel} />
       </div>
       <h1>{title}</h1>
       <p>
@@ -91,11 +71,11 @@ const jsonLd = [
       </p>
       <div class="article-meta">
         <span>By ArcPoint Gear Editorial</span>
-        <span>Updated May 4, 2026</span>
-        <span>9 min read</span>
+        <span>{article.date}</span>
+        <span>{article.readTime}</span>
       </div>
       <div class="article-visual article-visual-review">
-        <span>Osprey Talon 22 / Research Review</span>
+        <span>{article.heroLabel}</span>
       </div>
     </header>
 
@@ -110,58 +90,41 @@ const jsonLd = [
       </aside>
       <article class="article-content">
         <section id="summary" class="content-block" data-reveal>
-          <ProductSummaryCard product={ospreyTalon22} />
+          <ProductSummaryCard product={product} />
         </section>
 
         <section id="buy-skip" class="two-column-content" data-reveal>
           <div>
             <h2>Who Should Buy</h2>
-            <p>
-              Buy the Talon 22 if you want a technical daypack with close carry, smart pocketing,
-              hydration convenience, and enough structure for energetic hikes with layers, water,
-              snacks, and small safety gear.
-            </p>
+            <p>{article.buySkip.buy}</p>
           </div>
           <div>
             <h2>Who Should Skip</h2>
-            <p>
-              Skip it if you want the absolute lightest possible pack, need winter-volume capacity,
-              or mostly want a casual town-to-trail bag without a technical harness feel.
-            </p>
+            <p>{article.buySkip.skip}</p>
           </div>
         </section>
 
-        <SpecTable rows={ospreyTalon22.specs} title="Key Specifications" />
+        <SpecTable rows={product.specs} title="Key Specifications" />
 
         <section class="content-block" data-reveal>
           <h2>Main Analysis</h2>
-          <p>
-            The Talon 22 continues to read as a benchmark because it blends a technical harness,
-            external hydration access, trekking-pole-friendly storage, and enough structure for
-            real trail loads without becoming an overnight pack. Our evaluation focuses on the
-            published design, category norms, and recurring owner feedback themes.
-          </p>
-          <p>
-            The tradeoff is weight and complexity. Minimalist hikers can go lighter, while
-            casual users may not need the feature set. But for a hiker who values fit, movement,
-            and trail organization, the Talon 22 remains a highly defensible shortlist pick.
-          </p>
+          {article.analysis.map((paragraph) => <p>{paragraph}</p>)}
         </section>
 
-        <ProsCons pros={ospreyTalon22.pros} cons={ospreyTalon22.cons} />
+        <ProsCons pros={product.pros} cons={product.cons} />
         <div id="verdict">
           <VerdictBox
-            score={ospreyTalon22.score}
-            text="The Osprey Talon 22 is still one of the most complete research-review picks for hikers who want a technical daypack with stable carry, smart access, and mountain-ready organization."
+            score={product.score}
+            text={article.verdict}
           />
         </div>
         <section class="cta-panel" data-reveal>
           <div>
             <p class="eyebrow">Retailer Check</p>
             <h2>Check current retailer availability</h2>
-            <p>Price tier: $$$. Exact retailer pricing may change. Affiliate link disclosure applies.</p>
+            <p>Price tier: {article.cta.priceTier}. {article.cta.disclosure}</p>
           </div>
-          <AffiliateButton />
+          <AffiliateButton href={article.cta.href} label={article.cta.label} />
         </section>
         <FAQSection faqs={faqs} />
       </article>

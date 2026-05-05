@@ -29,3 +29,14 @@ npm run preview
 ## Current Status
 
 Phase 1 front-end publishing foundation. No CMS, backend, user accounts, payments, shopping cart, admin dashboard, OpenClaw, NoCodeBackend, or live retailer API integrations are connected.
+
+## OpenClaw Publishing Workflow
+
+1. OpenClaw creates draft JSON in the format documented in `src/content-inbox/README.md`.
+2. Draft JSON is submitted through a GitHub PR.
+3. Codex performs compliance review for claims, method labels, affiliate disclosure, Amazon pricing, Amazon review counts, and image policy.
+4. Approved drafts are converted to published article data in `src/data/articleContent.js`.
+5. Run `npm run build`.
+6. Deploy `dist/` to StartHost.
+
+Drafts in `src/content-inbox/` are not published automatically.

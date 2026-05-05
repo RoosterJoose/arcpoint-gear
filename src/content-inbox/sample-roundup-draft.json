@@ -1,0 +1,159 @@
+{
+  "articleType": "roundup",
+  "status": "draft",
+  "title": "Best Lightweight Camping Chairs for Packable Comfort",
+  "slug": "best-lightweight-camping-chairs",
+  "category": {
+    "name": "Camping",
+    "slug": "camping"
+  },
+  "label": "Buying Guide",
+  "seoTitle": "Best Lightweight Camping Chairs for Packable Comfort | ArcPoint Gear",
+  "metaDescription": "A research-based Amazon affiliate roundup of lightweight camping chairs using price tiers, specification comparison, and owner feedback themes.",
+  "intro": [
+    "This draft roundup is structured for campers who want a chair that balances packed size, support, durability, and setup speed.",
+    "This is a research-based draft based on product specifications, category comparison, and owner feedback themes. It does not claim hands-on field testing."
+  ],
+  "disclosure": "ArcPoint Gear may earn commissions from qualifying purchases through affiliate links. Exact retailer pricing may change.",
+  "products": [
+    {
+      "productName": "Chair Zero",
+      "brand": "Helinox",
+      "asin": "B000000001",
+      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "badge": "Best Overall",
+      "priceTier": "$$$$",
+      "arcpointScore": "8.9",
+      "bestFor": "Backpackers and campers who want a very light chair from a proven premium category leader.",
+      "summary": "A research-based shortlist pick for users who prioritize low packed weight, compact carry, and a more technical chair design.",
+      "specs": [
+        ["Best Use", "Backpacking and lightweight camping"],
+        ["Chair Type", "Compact folding chair"],
+        ["Price Tier", "$$$$"]
+      ],
+      "pros": [
+        "Strong fit for weight-conscious camping kits",
+        "Compact packed profile compared with traditional camp chairs",
+        "Premium positioning with broad category recognition"
+      ],
+      "cons": [
+        "Higher price tier than basic camp chairs",
+        "Low seat height may not suit every user",
+        "Less plush than full-size car-camping chairs"
+      ],
+      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+    },
+    {
+      "productName": "Flexlite Air Chair",
+      "brand": "REI Co-op",
+      "asin": "B000000002",
+      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "badge": "Best Value",
+      "priceTier": "$$$",
+      "arcpointScore": "8.4",
+      "bestFor": "Campers who want a lighter chair without moving into the highest premium price tier.",
+      "summary": "A research-based value pick for buyers comparing packed weight, support, and cost within the lightweight chair category.",
+      "specs": [
+        ["Best Use", "Lightweight camping"],
+        ["Chair Type", "Compact folding chair"],
+        ["Price Tier", "$$$"]
+      ],
+      "pros": [
+        "Balanced value profile",
+        "Lightweight enough for selective backpacking use",
+        "Simple shortlist option for mixed camping setups"
+      ],
+      "cons": [
+        "Not as premium as top-tier ultralight options",
+        "Support and stability depend on terrain",
+        "May still be more chair than minimalist hikers want"
+      ],
+      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+    },
+    {
+      "productName": "Mica Basin Camp Chair",
+      "brand": "Big Agnes",
+      "asin": "B000000003",
+      "affiliateUrl": "https://www.amazon.com/?tag=arcpointgear-20",
+      "badge": "Best for Basecamp Comfort",
+      "priceTier": "$$$$",
+      "arcpointScore": "8.6",
+      "bestFor": "Campers who are willing to carry more chair for better comfort around camp.",
+      "summary": "A research-based comfort pick for users who care more about camp relaxation than absolute minimum packed weight.",
+      "specs": [
+        ["Best Use", "Camping and basecamp"],
+        ["Chair Type", "Supportive folding chair"],
+        ["Price Tier", "$$$$"]
+      ],
+      "pros": [
+        "Comfort-forward category positioning",
+        "Better fit for relaxed camp use than minimalist chairs",
+        "Useful for car camping and short carry-ins"
+      ],
+      "cons": [
+        "Less appealing for ultralight backpacking",
+        "Higher price tier",
+        "Packed size may be larger than minimalist alternatives"
+      ],
+      "imagePolicy": "Do not use Amazon product images. Use original, licensed, manufacturer-approved, or placeholder visuals only."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "How We Shortlisted Lightweight Camping Chairs",
+      "body": [
+        "This draft evaluates chairs by packed size, price tier, support profile, stability expectations, and category fit.",
+        "Before publishing, an editor should verify specifications against manufacturer pages and remove any unsupported claim."
+      ]
+    },
+    {
+      "heading": "Buying Advice",
+      "body": [
+        "Choose a lighter chair when packed size and carry weight matter. Choose a more supportive chair when camp comfort matters more than moving fast.",
+        "Avoid selecting by listed weight alone. Seat height, stability, packed shape, and setup complexity can matter as much as the headline weight."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Is this roundup based on hands-on testing?",
+      "answer": "No. This is a research-based draft unless an editor later converts it to a Field-Tested Review with documented testing context."
+    },
+    {
+      "question": "Does ArcPoint Gear show exact Amazon prices?",
+      "answer": "No. ArcPoint Gear uses price tiers because retailer pricing can change."
+    }
+  ],
+  "relatedArticles": [
+    {
+      "title": "Camping Gear",
+      "slug": "/category/camping"
+    },
+    {
+      "title": "How We Rate Gear",
+      "slug": "/how-we-rate-gear"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Manufacturer product specifications",
+      "url": "https://example.com/manufacturer-chair-specs",
+      "sourceType": "manufacturer"
+    },
+    {
+      "title": "Category comparison notes",
+      "url": "https://example.com/lightweight-chair-category-reference",
+      "sourceType": "category-reference"
+    }
+  ],
+  "complianceNotes": {
+    "methodLabel": "Buying Guide",
+    "handsOnTestingClaimed": false,
+    "usesExactAmazonPrices": false,
+    "usesAmazonReviewCounts": false,
+    "usesScrapedAmazonImages": false,
+    "usesCopiedAmazonDescriptions": false,
+    "usesPriceTiersOnly": true,
+    "affiliateDisclosureVisible": true
+  }
+}
