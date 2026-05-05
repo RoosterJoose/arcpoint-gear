@@ -53,9 +53,15 @@
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/exos58-primary.jpg",
-        "source": "amazon"
+        "source": "amazon_product_page_reference",
+        "usageStatus": "draft-reference-only",
+        "requiresRefreshBeforePublication": true,
+        "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
-      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "asinVerificationStatus": "pending",
+      "amazonUrlVerificationStatus": "pending",
+      "affiliateUrlVerificationStatus": "pending"
     },
     {
       "productName": "Hyperlite Mountain Gear Southwest 55",
@@ -94,9 +100,15 @@
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/hmg-sw55-primary.jpg",
-        "source": "amazon"
+        "source": "amazon_product_page_reference",
+        "usageStatus": "draft-reference-only",
+        "requiresRefreshBeforePublication": true,
+        "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
-      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "asinVerificationStatus": "pending",
+      "amazonUrlVerificationStatus": "pending",
+      "affiliateUrlVerificationStatus": "pending"
     },
     {
       "productName": "ULA Circuit",
@@ -135,9 +147,15 @@
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/ula-circuit-primary.jpg",
-        "source": "amazon"
+        "source": "amazon_product_page_reference",
+        "usageStatus": "draft-reference-only",
+        "requiresRefreshBeforePublication": true,
+        "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
-      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "asinVerificationStatus": "pending",
+      "amazonUrlVerificationStatus": "pending",
+      "affiliateUrlVerificationStatus": "pending"
     },
     {
       "productName": "Gossamer Gear Mariposa 60",
@@ -176,9 +194,15 @@
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/mariposa60-primary.jpg",
-        "source": "amazon"
+        "source": "amazon_product_page_reference",
+        "usageStatus": "draft-reference-only",
+        "requiresRefreshBeforePublication": true,
+        "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
-      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "asinVerificationStatus": "pending",
+      "amazonUrlVerificationStatus": "pending",
+      "affiliateUrlVerificationStatus": "pending"
     },
     {
       "productName": "Granite Gear Crown3 60",
@@ -217,9 +241,15 @@
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/crown3-primary.jpg",
-        "source": "amazon"
+        "source": "amazon_product_page_reference",
+        "usageStatus": "draft-reference-only",
+        "requiresRefreshBeforePublication": true,
+        "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
-      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "asinVerificationStatus": "pending",
+      "amazonUrlVerificationStatus": "pending",
+      "affiliateUrlVerificationStatus": "pending"
     },
     {
       "productName": "Zpacks Arc Haul Ultra 60",
@@ -258,9 +288,15 @@
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/arc-haul-primary.jpg",
-        "source": "amazon"
+        "source": "amazon_product_page_reference",
+        "usageStatus": "draft-reference-only",
+        "requiresRefreshBeforePublication": true,
+        "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
-      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy."
+      "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
+      "asinVerificationStatus": "pending",
+      "amazonUrlVerificationStatus": "pending",
+      "affiliateUrlVerificationStatus": "pending"
     }
   ],
   "sections": [
@@ -276,6 +312,14 @@
       "body": [
         "The best ultralight backpack is not always the lightest one. Torso fit, back-panel comfort, pocket layout, load transfer, and practical carry range matter just as much as the headline weight.",
         "Choose a more mainstream lightweight pack if comfort and versatility matter most. Choose a more specialized ultralight pack if aggressive weight savings are the top priority and you are comfortable with tradeoffs."
+      ]
+    },
+    {
+      "heading": "Editor Review Notes",
+      "body": [
+        "This is a draft-only intake package and is not approved for publication.",
+        "ASINs, Amazon product URLs, affiliate URLs, and Amazon image references still require verification before any live use.",
+        "Review whether this draft should replace, refresh, or be consolidated with any existing ultralight hiking backpacks content already on the site."
       ]
     }
   ],
@@ -306,13 +350,13 @@
       "sourceType": "amazon"
     },
     {
-      "title": "Manufacturer backpack specification references",
-      "url": "https://example.com/manufacturer-ultralight-pack-specs",
+      "title": "Manufacturer references to be verified before publication",
+      "url": "https://www.osprey.com/",
       "sourceType": "manufacturer"
     },
     {
-      "title": "Category comparison notes for ultralight hiking backpacks",
-      "url": "https://example.com/ultralight-backpack-category-reference",
+      "title": "Editorial category comparison notes (draft research working source)",
+      "url": "https://www.rei.com/learn/expert-advice/backpacks.html",
       "sourceType": "category-reference"
     }
   ],
@@ -324,6 +368,8 @@
     "usesAmazonProductImages": true,
     "usesCopiedAmazonDescriptions": false,
     "usesPriceTiersOnly": true,
-    "affiliateDisclosureVisible": true
+    "affiliateDisclosureVisible": true,
+    "requiresHumanReview": true,
+    "approvedForPublication": false
   }
 }
