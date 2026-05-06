@@ -9,7 +9,7 @@
   },
   "label": "Research Review",
   "seoTitle": "Best Ultralight Hiking Backpacks for Fast Mountain Days | ArcPoint Gear",
-  "metaDescription": "A research-based Amazon affiliate roundup of ultralight hiking backpacks for fast mountain days, using price tiers, specification comparison, and owner feedback themes.",
+  "metaDescription": "A research-based Amazon affiliate roundup of ultralight hiking backpacks for fast mountain days using price tiers, specification comparison, and owner feedback themes.",
   "intro": [
     "This draft roundup is built for hikers who want to move faster with less pack burden while still keeping enough support, volume, and durability for serious mountain days and multi-day trips.",
     "This is a research-based draft based on product specifications, category comparison, and owner feedback themes. It does not claim hands-on field testing."
@@ -19,14 +19,17 @@
     {
       "productName": "Osprey Exos 58",
       "brand": "Osprey",
-      "asin": "PENDING-ASIN-VERIFY-EXOS58",
+      "asin": "pending-verification",
+      "asinVerificationStatus": "pending",
       "amazonUrl": "https://www.amazon.com/s?k=Osprey+Exos+58",
+      "amazonUrlVerificationStatus": "pending",
       "affiliateUrl": "https://www.amazon.com/s?k=Osprey+Exos+58&tag=arcpointgear-20",
+      "affiliateUrlVerificationStatus": "pending",
       "badge": "Best Overall",
       "priceTier": "$$$",
       "arcpointScore": "9.1",
-      "bestFor": "Backpackers who want a lightweight framed pack that balances comfort, ventilation, and long-mile practicality.",
-      "summary": "A research-based top pick for hikers who want lower carry weight without jumping to a highly specialized ultralight pack system.",
+      "bestFor": "Backpackers who want a lightweight framed pack that balances comfort, organization, and low carry weight for serious mountain days.",
+      "summary": "A research-based top pick for hikers who want a low-weight pack without giving up the support and everyday usability that broader-market backpackers still need.",
       "specs": [
         [
           "Best Use",
@@ -43,13 +46,13 @@
       ],
       "pros": [
         "Strong balance of comfort and low weight",
-        "Mainstream lightweight option with broad category trust",
-        "Better load support than many minimal frameless packs"
+        "Broad category reputation with mainstream appeal",
+        "Better load support than many ultra-minimal packs"
       ],
       "cons": [
-        "Not the lightest pack in the category",
+        "Not the absolute lightest choice in the category",
         "Fit can be torso-sensitive",
-        "Usually priced above entry-level backpacking packs"
+        "Usually priced above entry-level packs"
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/exos58-primary.jpg",
@@ -58,22 +61,24 @@
         "requiresRefreshBeforePublication": true,
         "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
+      "imageVerificationStatus": "pending",
       "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
-      "asinVerificationStatus": "pending",
-      "amazonUrlVerificationStatus": "pending",
-      "affiliateUrlVerificationStatus": "pending"
+      "sourceNotes": "Brand/model chosen based on category reputation and manufacturer line fit. Amazon detail URL, affiliate URL, ASIN, and image reference still require human verification before publication."
     },
     {
       "productName": "Hyperlite Mountain Gear Southwest 55",
       "brand": "Hyperlite Mountain Gear",
-      "asin": "PENDING-ASIN-VERIFY-SW55",
+      "asin": "pending-verification",
+      "asinVerificationStatus": "pending",
       "amazonUrl": "https://www.amazon.com/s?k=Hyperlite+Mountain+Gear+Southwest+55",
+      "amazonUrlVerificationStatus": "pending",
       "affiliateUrl": "https://www.amazon.com/s?k=Hyperlite+Mountain+Gear+Southwest+55&tag=arcpointgear-20",
+      "affiliateUrlVerificationStatus": "pending",
       "badge": "Best Premium Ultralight",
       "priceTier": "$$$$",
       "arcpointScore": "9.0",
-      "bestFor": "Ultralight hikers who prioritize low base weight, weather-resistant materials, and a minimalist design approach.",
-      "summary": "A research-based premium choice for experienced hikers willing to pay more for aggressive weight savings and a stripped-down pack profile.",
+      "bestFor": "Ultralight hikers who prioritize aggressive weight savings, weather-resistant materials, and a minimalist pack philosophy.",
+      "summary": "A research-based premium option for experienced hikers who are willing to spend more for a lighter, more specialized backpack platform.",
       "specs": [
         [
           "Best Use",
@@ -95,8 +100,8 @@
       ],
       "cons": [
         "Premium price tier",
-        "Less forgiving than some mainstream packs",
-        "Minimal organization compared with feature-rich packs"
+        "More specialized than mainstream lightweight packs",
+        "Minimal organization may not suit every user"
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/hmg-sw55-primary.jpg",
@@ -105,22 +110,24 @@
         "requiresRefreshBeforePublication": true,
         "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
+      "imageVerificationStatus": "pending",
       "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
-      "asinVerificationStatus": "pending",
-      "amazonUrlVerificationStatus": "pending",
-      "affiliateUrlVerificationStatus": "pending"
+      "sourceNotes": "Chosen as a recognizable premium ultralight benchmark. Product-specific commerce fields still require human verification before any live use."
     },
     {
       "productName": "ULA Circuit",
       "brand": "ULA Equipment",
-      "asin": "PENDING-ASIN-VERIFY-CIRCUIT",
+      "asin": "pending-verification",
+      "asinVerificationStatus": "pending",
       "amazonUrl": "https://www.amazon.com/s?k=ULA+Circuit",
+      "amazonUrlVerificationStatus": "pending",
       "affiliateUrl": "https://www.amazon.com/s?k=ULA+Circuit&tag=arcpointgear-20",
+      "affiliateUrlVerificationStatus": "pending",
       "badge": "Best for Thru-Hikers",
       "priceTier": "$$$",
       "arcpointScore": "8.9",
-      "bestFor": "Long-distance hikers who want a trail-proven lightweight pack that can still carry a meaningful load well.",
-      "summary": "A research-based staple in the thru-hiking world with a reputation for balancing low weight, usable volume, and practical carry comfort.",
+      "bestFor": "Long-distance hikers who want a trail-proven lightweight pack that still carries a real load well.",
+      "summary": "A research-based staple in the thru-hiking world with a strong reputation for balancing low weight, usable volume, and practical carry capability.",
       "specs": [
         [
           "Best Use",
@@ -137,13 +144,13 @@
       ],
       "pros": [
         "Trail-proven reputation",
-        "Good bridge between ultralight and practical carry capacity",
-        "Strong fit for experienced long-distance hikers"
+        "Strong middle ground between minimalism and carry capacity",
+        "Popular among experienced long-distance hikers"
       ],
       "cons": [
         "More niche availability than major brands",
-        "Not as plush as comfort-first traditional packs",
-        "May feel sparse to newer backpackers"
+        "May feel sparse to newer backpackers",
+        "Still above entry-level price tiers"
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/ula-circuit-primary.jpg",
@@ -152,22 +159,24 @@
         "requiresRefreshBeforePublication": true,
         "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
+      "imageVerificationStatus": "pending",
       "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
-      "asinVerificationStatus": "pending",
-      "amazonUrlVerificationStatus": "pending",
-      "affiliateUrlVerificationStatus": "pending"
+      "sourceNotes": "Included because it is a common long-distance hiking reference point. Amazon-specific identifiers and links remain pending verification."
     },
     {
       "productName": "Gossamer Gear Mariposa 60",
       "brand": "Gossamer Gear",
-      "asin": "PENDING-ASIN-VERIFY-MARIPOSA",
+      "asin": "pending-verification",
+      "asinVerificationStatus": "pending",
       "amazonUrl": "https://www.amazon.com/s?k=Gossamer+Gear+Mariposa+60",
+      "amazonUrlVerificationStatus": "pending",
       "affiliateUrl": "https://www.amazon.com/s?k=Gossamer+Gear+Mariposa+60&tag=arcpointgear-20",
+      "affiliateUrlVerificationStatus": "pending",
       "badge": "Best for Long Food Carries",
       "priceTier": "$$$",
       "arcpointScore": "8.8",
-      "bestFor": "Hikers who want lightweight efficiency with a little more storage flexibility and practical trail organization.",
-      "summary": "A research-based option for backpackers who want a lightweight pack without giving up useful exterior storage and multi-day versatility.",
+      "bestFor": "Hikers who want lightweight efficiency with a little more practical storage and multi-day flexibility.",
+      "summary": "A research-based option for backpackers who want a lightweight pack without giving up useful exterior storage and category versatility.",
       "specs": [
         [
           "Best Use",
@@ -185,7 +194,7 @@
       "pros": [
         "Efficient balance of volume and low weight",
         "Well-known option in ultralight circles",
-        "Useful exterior storage layout"
+        "Storage layout supports practical trail use"
       ],
       "cons": [
         "Less structured than heavier traditional packs",
@@ -199,22 +208,24 @@
         "requiresRefreshBeforePublication": true,
         "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
+      "imageVerificationStatus": "pending",
       "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
-      "asinVerificationStatus": "pending",
-      "amazonUrlVerificationStatus": "pending",
-      "affiliateUrlVerificationStatus": "pending"
+      "sourceNotes": "Included as a known lightweight long-distance option. Commerce and image references still need final verification before publication."
     },
     {
       "productName": "Granite Gear Crown3 60",
       "brand": "Granite Gear",
-      "asin": "PENDING-ASIN-VERIFY-CROWN3",
+      "asin": "pending-verification",
+      "asinVerificationStatus": "pending",
       "amazonUrl": "https://www.amazon.com/s?k=Granite+Gear+Crown3+60",
+      "amazonUrlVerificationStatus": "pending",
       "affiliateUrl": "https://www.amazon.com/s?k=Granite+Gear+Crown3+60&tag=arcpointgear-20",
+      "affiliateUrlVerificationStatus": "pending",
       "badge": "Best Value",
       "priceTier": "$$",
       "arcpointScore": "8.7",
-      "bestFor": "Hikers who want a lighter backpacking pack without stepping all the way into premium ultralight pricing.",
-      "summary": "A research-based value pick that sits between traditional backpacking comfort and more expensive specialist ultralight packs.",
+      "bestFor": "Hikers who want a lighter backpacking pack without paying the highest premium ultralight prices.",
+      "summary": "A research-based value pick that bridges traditional backpacking comfort and more specialized lightweight backpack design.",
       "specs": [
         [
           "Best Use",
@@ -237,7 +248,7 @@
       "cons": [
         "Not as refined as top premium picks",
         "Heavier than the lightest specialist models",
-        "A compromise choice rather than a category leader in one direction"
+        "More compromise-driven than category leaders"
       ],
       "images": {
         "primary": "https://m.media-amazon.com/images/I/crown3-primary.jpg",
@@ -246,22 +257,24 @@
         "requiresRefreshBeforePublication": true,
         "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
+      "imageVerificationStatus": "pending",
       "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
-      "asinVerificationStatus": "pending",
-      "amazonUrlVerificationStatus": "pending",
-      "affiliateUrlVerificationStatus": "pending"
+      "sourceNotes": "Included as a value-oriented lightweight framed pack candidate. Final product verification still required."
     },
     {
       "productName": "Zpacks Arc Haul Ultra 60",
       "brand": "Zpacks",
-      "asin": "PENDING-ASIN-VERIFY-ARCHAUL",
+      "asin": "pending-verification",
+      "asinVerificationStatus": "pending",
       "amazonUrl": "https://www.amazon.com/s?k=Zpacks+Arc+Haul+Ultra+60",
+      "amazonUrlVerificationStatus": "pending",
       "affiliateUrl": "https://www.amazon.com/s?k=Zpacks+Arc+Haul+Ultra+60&tag=arcpointgear-20",
+      "affiliateUrlVerificationStatus": "pending",
       "badge": "Best Ultralight Splurge",
       "priceTier": "$$$$",
       "arcpointScore": "8.8",
       "bestFor": "Advanced ultralight hikers willing to spend more for aggressive weight savings and a more specialized pack platform.",
-      "summary": "A research-based premium ultralight option for buyers who prioritize low base weight and are comfortable with a more niche design.",
+      "summary": "A research-based premium ultralight option for buyers who prioritize low base weight and accept more niche tradeoffs.",
       "specs": [
         [
           "Best Use",
@@ -293,32 +306,31 @@
         "requiresRefreshBeforePublication": true,
         "notes": "Reference only for draft workflow. Verify final allowed usage and do not self-host without approved publication workflow."
       },
+      "imageVerificationStatus": "pending",
       "imagePolicy": "Amazon product images may be used for draft workflow and review packaging. Final publication handling remains subject to site review policy.",
-      "asinVerificationStatus": "pending",
-      "amazonUrlVerificationStatus": "pending",
-      "affiliateUrlVerificationStatus": "pending"
+      "sourceNotes": "Included as a high-end ultralight benchmark. Product-specific Amazon identifiers remain pending verification."
     }
   ],
   "sections": [
     {
       "heading": "How We Shortlisted Ultralight Hiking Backpacks",
       "body": [
-        "This draft evaluates each pack by weight-conscious design, support structure, practical carry range, storage layout, category reputation, and likely fit for hikers who care about both efficiency and real trail usability.",
-        "Before publication, an editor should verify product-specific Amazon URLs, confirm affiliate links, and review any image references used in the package."
+        "This draft evaluates each pack by weight-conscious design, support structure, practical carry range, storage layout, category reputation, and likely fit for hikers who care about both speed and real-world usability.",
+        "Before publication, an editor should verify ASINs, Amazon detail URLs, affiliate URLs, image references, and any model-specific specification claims."
       ]
     },
     {
       "heading": "Buying Advice",
       "body": [
-        "The best ultralight backpack is not always the lightest one. Torso fit, back-panel comfort, pocket layout, load transfer, and practical carry range matter just as much as the headline weight.",
-        "Choose a more mainstream lightweight pack if comfort and versatility matter most. Choose a more specialized ultralight pack if aggressive weight savings are the top priority and you are comfortable with tradeoffs."
+        "The best ultralight hiking backpack is not always the lightest one. Torso fit, back-panel comfort, pocket layout, and load transfer matter just as much as the headline weight.",
+        "Choose a more mainstream lightweight pack if comfort and versatility matter most. Choose a more specialized ultralight model if aggressive weight savings are the top priority and you are comfortable with the tradeoffs."
       ]
     },
     {
       "heading": "Editor Review Notes",
       "body": [
         "This is a draft-only intake package and is not approved for publication.",
-        "ASINs, Amazon product URLs, affiliate URLs, and Amazon image references still require verification before any live use.",
+        "All ASINs, Amazon product URLs, affiliate URLs, and Amazon image references still require verification before any live use.",
         "Review whether this draft should replace, refresh, or be consolidated with any existing ultralight hiking backpacks content already on the site."
       ]
     }
@@ -350,14 +362,34 @@
       "sourceType": "amazon"
     },
     {
-      "title": "Manufacturer references to be verified before publication",
+      "title": "Osprey pack reference pages",
       "url": "https://www.osprey.com/",
       "sourceType": "manufacturer"
     },
     {
-      "title": "Editorial category comparison notes (draft research working source)",
-      "url": "https://www.rei.com/learn/expert-advice/backpacks.html",
-      "sourceType": "category-reference"
+      "title": "Hyperlite Mountain Gear pack reference pages",
+      "url": "https://www.hyperlitemountaingear.com/",
+      "sourceType": "manufacturer"
+    },
+    {
+      "title": "Gossamer Gear pack reference pages",
+      "url": "https://www.gossamergear.com/",
+      "sourceType": "manufacturer"
+    },
+    {
+      "title": "ULA Equipment pack reference pages",
+      "url": "https://www.ula-equipment.com/",
+      "sourceType": "manufacturer"
+    },
+    {
+      "title": "Granite Gear pack reference pages",
+      "url": "https://www.granitegear.com/",
+      "sourceType": "manufacturer"
+    },
+    {
+      "title": "Zpacks pack reference pages",
+      "url": "https://zpacks.com/",
+      "sourceType": "manufacturer"
     }
   ],
   "complianceNotes": {
