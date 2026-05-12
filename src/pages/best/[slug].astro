@@ -5,7 +5,7 @@ import DisclosureNote from "../../components/DisclosureNote.astro";
 import ComparisonTable from "../../components/ComparisonTable.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import AffiliateButton from "../../components/AffiliateButton.astro";
-import { getPublishedRoundupBySlug } from "../../data/publishedArticles";
+import { getPublishedRoundupBySlug, publishedArticlesByType } from "../../data/publishedArticles";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -13,7 +13,14 @@ import {
   buildItemListSchema,
 } from "../../utils/seo";
 
-const article = getPublishedRoundupBySlug("best-ultralight-hiking-backpacks");
+export function getStaticPaths() {
+  return publishedArticlesByType.roundups.map((seed) => ({
+    params: { slug: seed.slug },
+    props: { article: getPublishedRoundupBySlug(seed.slug) },
+  }));
+}
+
+const { article } = Astro.props;
 
 if (!article?.approvedForPublication) {
   Astro.response.status = 404;
@@ -26,7 +33,7 @@ const faqs = article?.faqs ?? [];
 
 const breadcrumbs = [
   { label: article?.category ?? "Gear", href: article ? `/category/${article.categorySlug}` : undefined },
-  { label: "Best Ultralight Hiking Backpacks", href: canonical },
+  { label: title, href: canonical },
 ];
 
 const jsonLd = article
@@ -63,7 +70,7 @@ const jsonLd = article
     {
       article ? (
         <>
-          <Breadcrumbs items={[{ label: article.category, href: `/category/${article.categorySlug}` }, { label: "Best Ultralight Hiking Backpacks" }]} />
+          <Breadcrumbs items={[{ label: article.category, href: `/category/${article.categorySlug}` }, { label: title }]} />
           <header class="article-hero" data-reveal>
             <div class="badge-row">
               <span class="badge badge-category">{article.category}</span>
@@ -94,7 +101,7 @@ const jsonLd = article
                   <p>{product.notes}</p>
                   <dl>
                     <div><dt>Price Tier</dt><dd>{product.priceTier}</dd></div>
-                    <div><dt>Weight Class</dt><dd>{product.weightClass}</dd></div>
+                    <div><dt>Profile</dt><dd>{product.weightClass}</dd></div>
                     <div><dt>Best For</dt><dd>{product.bestFor}</dd></div>
                   </dl>
                   <AffiliateButton href={product.affiliateUrl ?? article.cta.href} label={article.cta.label} />
@@ -103,7 +110,7 @@ const jsonLd = article
             </div>
           </section>
 
-          <ComparisonTable rows={article.tableRows} title="Ultralight Hiking Backpack Comparison" />
+          <ComparisonTable rows={article.tableRows} title="Comparison Snapshot" />
           <section class="content-block" data-reveal>
             {article.sections.map((section) => (
               <>

@@ -11,8 +11,8 @@ import VerdictBox from "../../components/VerdictBox.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import RelatedArticles from "../../components/RelatedArticles.astro";
 import AffiliateButton from "../../components/AffiliateButton.astro";
-import { relatedArticles } from "../../data/articles";
-import { getPublishedReviewBySlug } from "../../data/publishedArticles";
+import { getRelatedArticles } from "../../data/articles";
+import { getPublishedReviewBySlug, publishedArticlesByType } from "../../data/publishedArticles";
 import {
   buildArticleSchema,
   buildBreadcrumbSchema,
@@ -20,11 +20,18 @@ import {
   buildReviewSchema,
 } from "../../utils/seo";
 
-const article = getPublishedReviewBySlug("osprey-talon-22-review");
+export function getStaticPaths() {
+  return publishedArticlesByType.reviews.map((seed) => ({
+    params: { slug: seed.slug },
+    props: { article: getPublishedReviewBySlug(seed.slug) },
+  }));
+}
+
+const { article } = Astro.props;
 
 const breadcrumbs = [
   { label: article?.category ?? "Gear", href: article ? `/category/${article.categorySlug}` : undefined },
-  { label: article?.title ?? "Osprey Talon 22 Review", href: article?.canonical ?? "/404" },
+  { label: article?.title ?? "Review", href: article?.canonical ?? "/404" },
 ];
 
 if (!article?.approvedForPublication || !article.product) {
@@ -36,6 +43,7 @@ const description = article?.description ?? "The requested ArcPoint Gear article
 const canonical = article?.canonical ?? "/404";
 const faqs = article?.faqs ?? [];
 const product = article?.product;
+const relatedArticles = getRelatedArticles(canonical);
 
 const jsonLd = article && product
   ? [
@@ -55,7 +63,7 @@ const jsonLd = article && product
         canonical,
         title,
         reviewBody:
-          "Research Review based on product specifications, category comparison, and owner feedback themes. ArcPoint Gear does not claim hands-on field testing for this review.",
+          `${article.typeLabel} based on product positioning, category comparison, and practical buyer-fit analysis. ArcPoint Gear does not claim hands-on field testing for this review.`,
       }),
       faqs.length ? buildFAQSchema(faqs) : undefined,
     ]
@@ -116,7 +124,9 @@ const jsonLd = article && product
                 </div>
               </section>
 
-              <SpecTable rows={product.specs} title="Key Specifications" />
+              <div id="specs">
+                <SpecTable rows={product.specs} title="Key Specifications" />
+              </div>
 
               <section class="content-block" data-reveal>
                 <h2>Main Analysis</h2>

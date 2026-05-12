@@ -4,10 +4,17 @@ import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import FAQSection from "../../components/FAQSection.astro";
 import SpecTable from "../../components/SpecTable.astro";
 import DisclosureNote from "../../components/DisclosureNote.astro";
-import { getPublishedGuideBySlug } from "../../data/publishedArticles";
+import { getPublishedGuideBySlug, publishedArticlesByType } from "../../data/publishedArticles";
 import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "../../utils/seo";
 
-const article = getPublishedGuideBySlug("how-to-choose-a-daypack");
+export function getStaticPaths() {
+  return publishedArticlesByType.guides.map((seed) => ({
+    params: { slug: seed.slug },
+    props: { article: getPublishedGuideBySlug(seed.slug) },
+  }));
+}
+
+const { article } = Astro.props;
 
 if (!article?.approvedForPublication) {
   Astro.response.status = 404;
@@ -20,7 +27,7 @@ const faqs = article?.faqs ?? [];
 
 const breadcrumbs = [
   { label: "Guides" },
-  { label: article?.title ?? "How to Choose a Daypack", href: canonical },
+  { label: title, href: canonical },
 ];
 
 const jsonLd = article
@@ -52,7 +59,7 @@ const jsonLd = article
     {
       article ? (
         <>
-          <Breadcrumbs items={[{ label: "Guides" }, { label: "How to Choose a Daypack" }]} />
+          <Breadcrumbs items={[{ label: "Guides" }, { label: title }]} />
           <header class="article-hero" data-reveal>
             <div class="badge-row">
               <span class="badge badge-category">{article.category}</span>
@@ -85,7 +92,7 @@ const jsonLd = article
               </>
             ))}
           </section>
-          <SpecTable rows={article.specRows} title="Recommended Capacity and Specs" />
+          <SpecTable rows={article.specRows} title="Decision Framework" />
           <FAQSection faqs={faqs} />
         </>
       ) : (

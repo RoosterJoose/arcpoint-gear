@@ -1,26 +1,23 @@
-import {
-  comparisonArticles,
-  guideArticles,
-  reviewArticles,
-  roundupArticles,
-} from "./articleContent";
+import { publishedArticles } from "./publishedArticles";
 
 const toArticleCard = (article) => ({
   title: article.title,
   slug: article.canonical,
-  category: article.category,
-  categorySlug: article.categorySlug,
-  type: article.typeLabel,
-  date: article.date,
-  readTime: article.readTime,
-  excerpt: article.excerpt,
+  category: article.category.name,
+  categorySlug: article.category.slug,
+  type: article.label,
+  date: article.date ?? "",
+  readTime: article.readTime ?? "",
+  excerpt: article.excerpt ?? article.metaDescription,
 });
 
+const publishedArticleCards = publishedArticles
+  .slice()
+  .sort((a, b) => (b.datePublished ?? "").localeCompare(a.datePublished ?? ""))
+  .map(toArticleCard);
+
 export const articles = [
-  ...Object.values(reviewArticles).map(toArticleCard),
-  ...Object.values(roundupArticles).map(toArticleCard),
-  ...Object.values(guideArticles).map(toArticleCard),
-  ...Object.values(comparisonArticles).map(toArticleCard),
+  ...publishedArticleCards,
   {
     title: "Camp Lighting Systems Worth Shortlisting",
     slug: "/category/camping",
@@ -47,6 +44,7 @@ export const articles = [
 
 export const latestArticles = articles.slice(0, 6);
 
-export const relatedArticles = articles.filter(
-  (article) => article.slug !== reviewArticles["osprey-talon-22-review"].canonical
-);
+export const getRelatedArticles = (currentSlug) =>
+  articles.filter((article) => article.slug !== currentSlug);
+
+export const relatedArticles = getRelatedArticles();
