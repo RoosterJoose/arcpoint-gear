@@ -10,7 +10,8 @@
     "build": "astro build",
     "validate:inbox": "node scripts/validate-content-inbox.mjs",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "publish:approved": "node scripts/publish-approved-draft.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
