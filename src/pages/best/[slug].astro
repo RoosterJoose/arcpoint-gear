@@ -1,0 +1,141 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import DisclosureNote from "../../components/DisclosureNote.astro";
+import ComparisonTable from "../../components/ComparisonTable.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import { getPublishedRoundupBySlug, publishedArticlesByType } from "../../data/publishedArticles";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildItemListSchema,
+} from "../../utils/seo";
+
+export function getStaticPaths() {
+  return publishedArticlesByType.roundups.map((seed) => ({
+    params: { slug: seed.slug },
+    props: { article: getPublishedRoundupBySlug(seed.slug) },
+  }));
+}
+
+const { article } = Astro.props;
+
+if (!article?.approvedForPublication) {
+  Astro.response.status = 404;
+}
+
+const title = article?.title ?? "Article Not Found";
+const description = article?.description ?? "The requested ArcPoint Gear article is not published.";
+const canonical = article?.canonical ?? "/404";
+const faqs = article?.faqs ?? [];
+
+const breadcrumbs = [
+  { label: article?.category ?? "Gear", href: article ? `/category/${article.categorySlug}` : undefined },
+  { label: title, href: canonical },
+];
+
+const jsonLd = article
+  ? [
+      buildBreadcrumbSchema(breadcrumbs),
+      buildArticleSchema({
+        title,
+        description,
+        canonical,
+        type: "Article",
+        datePublished: article.datePublished,
+        dateModified: article.dateModified,
+        section: article.category,
+        keywords: article.keywords,
+      }),
+      buildItemListSchema({
+        name: title,
+        canonical,
+        items: article.products,
+      }),
+      faqs.length ? buildFAQSchema(faqs) : undefined,
+    ]
+  : [];
+---
+
+<Layout
+  title={`${title} | ArcPoint Gear`}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <main class="article-shell">
+    {
+      article ? (
+        <>
+          <Breadcrumbs items={[{ label: article.category, href: `/category/${article.categorySlug}` }, { label: title }]} />
+          <header class="article-hero" data-reveal>
+            <div class="badge-row">
+              <span class="badge badge-category">{article.category}</span>
+              <span class="badge badge-type">{article.typeLabel}</span>
+            </div>
+            <h1>{title}</h1>
+            <p>{article.intro[0]}</p>
+            <div class="article-meta">
+              <span>By ArcPoint Gear Editorial</span>
+              <span>{article.date}</span>
+              <span>{article.readTime}</span>
+            </div>
+            <div class="article-visual article-visual-roundup"><span>{article.heroLabel}</span></div>
+          </header>
+          <DisclosureNote />
+
+          <section class="article-section ranked-products" data-reveal>
+            <div class="section-heading">
+              <p class="eyebrow">Ranked Shortlist</p>
+              <h2>Best picks by use case</h2>
+              <p>Price tiers are used instead of live retail prices so the guidance stays honest as retailer pricing changes.</p>
+            </div>
+            <div class="ranked-grid">
+              {article.products.map((product) => (
+                <article class="ranked-card">
+                  <span>{product.rank}</span>
+                  <h2>{product.name}</h2>
+                  <p>{product.notes}</p>
+                  <dl>
+                    <div><dt>Price Tier</dt><dd>{product.priceTier}</dd></div>
+                    <div><dt>Profile</dt><dd>{product.weightClass}</dd></div>
+                    <div><dt>Best For</dt><dd>{product.bestFor}</dd></div>
+                  </dl>
+                  <AffiliateButton href={product.affiliateUrl ?? article.cta.href} label={article.cta.label} />
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <ComparisonTable rows={article.tableRows} title="Comparison Snapshot" />
+          <section class="content-block" data-reveal>
+            {article.sections.map((section) => (
+              <>
+                <h2>{section.heading}</h2>
+                {section.body.map((paragraph) => <p>{paragraph}</p>)}
+              </>
+            ))}
+          </section>
+          <section class="cta-panel" data-reveal>
+            <div>
+              <p class="eyebrow">Affiliate Disclosure</p>
+              <h2>Compare current retailer availability</h2>
+              <p>{article.cta.disclosure}</p>
+            </div>
+            <AffiliateButton href={article.cta.href} label={article.cta.label} />
+          </section>
+          <FAQSection faqs={faqs} />
+        </>
+      ) : (
+        <section class="page-hero" data-reveal>
+          <p class="eyebrow">Not Published</p>
+          <h1>Article Not Found</h1>
+          <p>This article is not available because its published data is missing or not approved for publication.</p>
+        </section>
+      )
+    }
+  </main>
+</Layout>
