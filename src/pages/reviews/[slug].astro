@@ -1,0 +1,160 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import CategoryBadge from "../../components/CategoryBadge.astro";
+import ArticleTypeBadge from "../../components/ArticleTypeBadge.astro";
+import DisclosureNote from "../../components/DisclosureNote.astro";
+import ProductSummaryCard from "../../components/ProductSummaryCard.astro";
+import SpecTable from "../../components/SpecTable.astro";
+import ProsCons from "../../components/ProsCons.astro";
+import VerdictBox from "../../components/VerdictBox.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import RelatedLinks from "../../components/RelatedLinks.astro";
+import AffiliateButton from "../../components/AffiliateButton.astro";
+import { getPublishedReviewBySlug, publishedArticlesByType } from "../../data/publishedArticles";
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+  buildReviewSchema,
+} from "../../utils/seo";
+
+export function getStaticPaths() {
+  return publishedArticlesByType.reviews.map((article) => ({
+    params: { slug: article.slug },
+  }));
+}
+
+const article = getPublishedReviewBySlug(Astro.params.slug);
+
+const breadcrumbs = [
+  { label: article?.category ?? "Gear", href: article ? `/category/${article.categorySlug}` : undefined },
+  { label: article?.title ?? "Review", href: article?.canonical ?? "/404" },
+];
+
+if (!article?.approvedForPublication || !article.product) {
+  Astro.response.status = 404;
+}
+
+const title = article?.title ?? "Article Not Found";
+const description = article?.description ?? "The requested ArcPoint Gear article is not published.";
+const canonical = article?.canonical ?? "/404";
+const faqs = article?.faqs ?? [];
+const product = article?.product;
+
+const jsonLd = article && product
+  ? [
+      buildBreadcrumbSchema(breadcrumbs),
+      buildArticleSchema({
+        title,
+        description,
+        canonical,
+        type: "Article",
+        datePublished: article.datePublished,
+        dateModified: article.dateModified,
+        section: article.category,
+        keywords: article.keywords,
+      }),
+      buildReviewSchema({
+        product,
+        canonical,
+        title,
+        reviewBody:
+          "Research Review based on product specifications, category comparison, and owner feedback themes. ArcPoint Gear does not claim hands-on field testing for this review.",
+      }),
+      faqs.length ? buildFAQSchema(faqs) : undefined,
+    ]
+  : [];
+---
+
+<Layout
+  title={`${title} | ArcPoint Gear`}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <main class="article-shell">
+    {
+      article && product ? (
+        <>
+          <Breadcrumbs items={[{ label: article.category, href: `/category/${article.categorySlug}` }, { label: title }]} />
+          <header class="article-hero" data-reveal>
+            <div class="badge-row">
+              <CategoryBadge label={article.category} href={`/category/${article.categorySlug}`} />
+              <ArticleTypeBadge label={article.typeLabel} />
+            </div>
+            <h1>{title}</h1>
+            <p>{article.intro[0]}</p>
+            <div class="article-meta">
+              <span>By ArcPoint Gear Editorial</span>
+              <span>{article.date}</span>
+              <span>{article.readTime}</span>
+            </div>
+            <div class="article-visual article-visual-review">
+              <span>{article.heroLabel}</span>
+            </div>
+          </header>
+
+          <DisclosureNote />
+
+          <div class="article-layout">
+            <aside class="toc">
+              <a href="#summary">Summary</a>
+              <a href="#buy-skip">Buy / Skip</a>
+              <a href="#specs">Specs</a>
+              <a href="#verdict">Verdict</a>
+            </aside>
+            <article class="article-content">
+              <section id="summary" class="content-block" data-reveal>
+                <ProductSummaryCard product={product} />
+              </section>
+
+              <section id="buy-skip" class="two-column-content" data-reveal>
+                <div>
+                  <h2>Who Should Buy</h2>
+                  <p>{article.buySkip.buy}</p>
+                </div>
+                <div>
+                  <h2>Who Should Skip</h2>
+                  <p>{article.buySkip.skip}</p>
+                </div>
+              </section>
+
+              <SpecTable rows={product.specs} title="Key Specifications" />
+
+              <section class="content-block" data-reveal>
+                <h2>Main Analysis</h2>
+                {article.analysis.map((paragraph) => <p>{paragraph}</p>)}
+              </section>
+
+              <ProsCons pros={product.pros} cons={product.cons} />
+              <div id="verdict">
+                <VerdictBox
+                  score={product.score}
+                  text={article.verdict}
+                />
+              </div>
+              <section class="cta-panel" data-reveal>
+                <div>
+                  <p class="eyebrow">Retailer Check</p>
+                  <h2>Check current retailer availability</h2>
+                  <p>Price tier: {article.cta.priceTier}. {article.cta.disclosure}</p>
+                </div>
+                <AffiliateButton href={article.cta.href} label={article.cta.label} />
+              </section>
+              <FAQSection faqs={faqs} />
+            </article>
+          </div>
+          <RelatedLinks links={article.relatedArticles} title="Where this review fits" />
+        </>
+      ) : (
+        <section class="page-hero" data-reveal>
+          <p class="eyebrow">Not Published</p>
+          <h1>Article Not Found</h1>
+          <p>This article is not available because its published data is missing or not approved for publication.</p>
+        </section>
+      )
+    }
+  </main>
+</Layout>

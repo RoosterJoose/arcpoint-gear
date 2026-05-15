@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ArcPoint Gear</title>
+  <desc id="desc">Dark branded Open Graph placeholder for ArcPoint Gear.</desc>
+  <rect width="1200" height="630" fill="#080B10"/>
+  <path d="M0 0h1200v630H0z" fill="url(#grid)" opacity=".32"/>
+  <circle cx="930" cy="120" r="260" fill="#22D3EE" opacity=".12"/>
+  <circle cx="260" cy="520" r="300" fill="#22C55E" opacity=".08"/>
+  <rect x="90" y="90" width="1020" height="450" rx="18" fill="#121722" opacity=".86" stroke="rgba(255,255,255,.12)"/>
+  <text x="120" y="190" fill="#22D3EE" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="3">PREMIUM GEAR INTELLIGENCE</text>
+  <text x="120" y="315" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="900">ARCPOINT GEAR</text>
+  <text x="120" y="395" fill="#9CA8BA" font-family="Inter, Arial, sans-serif" font-size="34">Research-led equipment coverage for serious kit decisions.</text>
+  <line x1="120" y1="460" x2="1080" y2="460" stroke="#22D3EE" opacity=".35"/>
+  <text x="120" y="505" fill="#687386" font-family="Inter, Arial, sans-serif" font-size="24">OUTDOOR / ATHLETIC / TACTICAL / PERFORMANCE</text>
+  <defs>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0v44" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+    </pattern>
+  </defs>
+</svg>

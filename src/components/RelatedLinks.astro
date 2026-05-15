@@ -1,0 +1,21 @@
+---
+const { links = [], title = "Related Reading" } = Astro.props;
+---
+
+{
+  links.length > 0 && (
+    <section class="content-block related-links" data-reveal>
+      <div>
+        <p class="eyebrow">Cluster Links</p>
+        <h2>{title}</h2>
+      </div>
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a href={link.slug}>{link.title}</a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
