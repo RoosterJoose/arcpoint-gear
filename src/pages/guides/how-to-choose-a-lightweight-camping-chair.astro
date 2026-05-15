@@ -1,0 +1,100 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import FAQSection from "../../components/FAQSection.astro";
+import SpecTable from "../../components/SpecTable.astro";
+import DisclosureNote from "../../components/DisclosureNote.astro";
+import { getPublishedGuideBySlug } from "../../data/publishedArticles";
+import { buildArticleSchema, buildBreadcrumbSchema, buildFAQSchema } from "../../utils/seo";
+
+const article = getPublishedGuideBySlug("how-to-choose-a-lightweight-camping-chair");
+
+if (!article?.approvedForPublication) {
+  Astro.response.status = 404;
+}
+
+const title = article?.title ?? "Article Not Found";
+const description = article?.description ?? "The requested ArcPoint Gear article is not published.";
+const canonical = article?.canonical ?? "/404";
+const faqs = article?.faqs ?? [];
+
+const breadcrumbs = [
+  { label: "Guides" },
+  { label: article?.title ?? "How to Choose a Lightweight Camping Chair", href: canonical },
+];
+
+const jsonLd = article
+  ? [
+      buildBreadcrumbSchema(breadcrumbs),
+      buildArticleSchema({
+        title,
+        description,
+        canonical,
+        type: "Article",
+        datePublished: article.datePublished,
+        dateModified: article.dateModified,
+        section: article.category,
+        keywords: article.keywords,
+      }),
+      faqs.length ? buildFAQSchema(faqs) : undefined,
+    ]
+  : [];
+---
+
+<Layout
+  title={`${title} | ArcPoint Gear`}
+  description={description}
+  canonical={canonical}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <main class="article-shell">
+    {
+      article ? (
+        <>
+          <Breadcrumbs items={[{ label: "Guides" }, { label: "How to Choose a Lightweight Camping Chair" }]} />
+          <header class="article-hero" data-reveal>
+            <div class="badge-row">
+              <span class="badge badge-category">{article.category}</span>
+              <span class="badge badge-type">{article.typeLabel}</span>
+            </div>
+            <h1>{title}</h1>
+            <p>{article.intro[0]}</p>
+            <div class="article-meta">
+              <span>By ArcPoint Gear Editorial</span>
+              <span>{article.date}</span>
+              <span>{article.readTime}</span>
+            </div>
+            <div class="article-visual article-visual-guide"><span>{article.heroLabel}</span></div>
+          </header>
+          <DisclosureNote />
+          <section class="guide-factor-grid" data-reveal>
+            {article.factors.map((factor) => (
+              <article>
+                <span>{factor.label}</span>
+                <h2>{factor.title}</h2>
+                <p>{factor.text}</p>
+              </article>
+            ))}
+          </section>
+          <section class="content-block" data-reveal>
+            {article.sections.map((section) => (
+              <>
+                <h2>{section.title}</h2>
+                <p>{section.text}</p>
+              </>
+            ))}
+          </section>
+          <SpecTable rows={article.specRows} title="Camping Chair Fit Checklist" />
+          <FAQSection faqs={faqs} />
+        </>
+      ) : (
+        <section class="page-hero" data-reveal>
+          <p class="eyebrow">Not Published</p>
+          <h1>Article Not Found</h1>
+          <p>This article is not available because its published data is missing or not approved for publication.</p>
+        </section>
+      )
+    }
+  </main>
+</Layout>

@@ -1,0 +1,108 @@
+{
+  "articleType": "guide",
+  "status": "published",
+  "title": "How to Choose a Lightweight Camping Chair",
+  "slug": "how-to-choose-a-lightweight-camping-chair",
+  "canonical": "/guides/how-to-choose-a-lightweight-camping-chair",
+  "category": {
+    "name": "Camping",
+    "slug": "camping"
+  },
+  "label": "Buying Guide",
+  "seoTitle": "How to Choose a Lightweight Camping Chair | ArcPoint Gear",
+  "metaDescription": "A practical guide for choosing a lightweight camping chair: packed size, weight, seat height, support, stability, and common buying mistakes.",
+  "date": "Updated May 15, 2026",
+  "datePublished": "2026-05-15",
+  "dateModified": "2026-05-15",
+  "readTime": "7 min read",
+  "excerpt": "A clear framework for choosing packed size, weight, seat height, support, stability, and setup speed without overbuying.",
+  "heroLabel": "Camping Chair Fit Framework",
+  "specTableTitle": "Chair Fit Checklist",
+  "keywords": ["lightweight camping chair", "camp chair buying guide", "packable camp chair"],
+  "intro": [
+    "A practical decision framework for campers choosing a lightweight chair without getting trapped by headline weight alone."
+  ],
+  "disclosure": "ArcPoint Gear uses research-based buying guidance and price tiers only when retailer pricing is discussed.",
+  "factors": [
+    {
+      "label": "01",
+      "title": "Match Weight to Carry Distance",
+      "text": "A chair you carry miles demands different tradeoffs than one that rides in the car. Map your typical carry distance before comparing packed weights."
+    },
+    {
+      "label": "02",
+      "title": "Seat Height Changes the Experience",
+      "text": "Low-profile chairs save weight but can feel unstable on uneven ground. Higher seats add comfort and accessibility but weigh more and pack larger."
+    },
+    {
+      "label": "03",
+      "title": "Support and Setup are Connected",
+      "text": "Faster setup usually means fewer poles and a simpler frame, but that can trade away back support and stability for speed."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Buying Factors",
+      "body": [
+        "Campers should start with carry distance, seat height preference, and desired support level. A chair that is perfect for backpacking can feel flimsy at a drive-in basecamp, and a plush basecamp chair is dead weight on the trail."
+      ]
+    },
+    {
+      "heading": "Weight and Packed Size Guidance",
+      "body": [
+        "Ultralight chairs typically land under 2 lbs and pack smaller than a water bottle. Mid-weight options trade a few extra ounces for better seat height and back support. Car-camping chairs should not be considered for any carry distance."
+      ]
+    },
+    {
+      "heading": "Common Mistakes",
+      "body": [
+        "Common mistakes include buying by packed weight alone without considering seat height, choosing an ultralight chair for basecamp use where stability matters more, and assuming a higher price always means a better fit for your specific carry distance."
+      ]
+    }
+  ],
+  "specRows": [
+    ["Ultralight backpacking chairs", "Under 2 lbs, packs smaller than 12 in"],
+    ["Lightweight camp chairs", "2-4 lbs, moderate pack size"],
+    ["Useful traits", "Stable base, accessible seat height, quick setup, weather-resistant fabric"],
+    ["Avoid", "Car-camping chairs for any carry distance"]
+  ],
+  "faqs": [
+    {
+      "question": "What is the lightest type of camping chair?",
+      "answer": "Ultralight backpacking chairs typically weigh under 2 lbs. The lightest options use minimal frame designs and sit very low to the ground."
+    },
+    {
+      "question": "Should I prioritize weight or comfort?",
+      "answer": "It depends on carry distance. For backpacking, weight comes first. For car camping or short carry-ins, comfort, seat height, and stability usually matter more."
+    },
+    {
+      "question": "Is this guide based on field testing?",
+      "answer": "No. This is a research-based buying guide focused on specifications, category comparison, and practical buying factors rather than claiming hands-on field testing."
+    }
+  ],
+  "relatedArticles": [
+    {
+      "title": "Best Lightweight Camping Chairs for Packable Comfort",
+      "slug": "/best/best-lightweight-camping-chairs"
+    },
+    {
+      "title": "Camping Gear",
+      "slug": "/category/camping"
+    }
+  ],
+  "complianceNotes": {
+    "methodLabel": "Buying Guide",
+    "handsOnTestingClaimed": false,
+    "usesExactAmazonPrices": false,
+    "usesAmazonReviewCounts": false,
+    "usesCopiedAmazonDescriptions": false,
+    "usesPriceTiersOnly": true,
+    "usesAmazonProductImages": false,
+    "amazonImageSource": "none",
+    "selfHostsAmazonImages": false,
+    "usesScrapedAmazonPages": false,
+    "affiliateDisclosureVisible": true,
+    "requiresHumanReview": false,
+    "approvedForPublication": true
+  }
+}
